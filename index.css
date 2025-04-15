@@ -1,0 +1,52 @@
+@import url('https: //fonts.googleapis.com/css2?family=Bungee+Tint&display=swap');
+
+body {
+    background-color: rgb(56, 1, 1);
+    color: white;
+    text-align: center;
+    font-size: 20px;
+
+}
+
+h1 {
+    font-size: 100px;
+    font-weight: 500;
+    color: gold;
+    font-style: italic;
+}
+
+h2 {
+    font-size: 50px;
+    font-family: "Edu AU VIC WA NT Arrows", cursive;
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+}
+
+h1, h2 {
+    font-weight: 400;
+    font-style: normal;
+    
+}
+
+.exp-list, .connect-list {
+    list-style-type: none;
+    
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.exp-container, .connect-container {
+    background-color: rgb(154, 115, 65);
+    border: 5px solid black;
+    padding: 30px;
+}
+
