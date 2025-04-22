@@ -1,12 +1,42 @@
 @import url('https: //fonts.googleapis.com/css2?family=Bungee+Tint&display=swap');
 
 body {
+    margin: 0;
+    padding: 0;
     background-color: rgb(56, 1, 1);
     color: white;
     text-align: center;
     font-size: 20px;
 
 }
+
+nav {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgb(99, 0, 51);
+}
+
+.cover {
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    
+    background-color: rgb(99, 0, 51);
+}
+.eyes {
+    height: 50px;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 
 h1 {
     font-size: 100px;
@@ -31,7 +61,7 @@ h1, h2 {
     
 }
 
-.exp-list, .connect-list {
+.exp-list {
     list-style-type: none;
     
 }
@@ -44,9 +74,29 @@ a:active {
     color: inherit;
 }
 
+
+.exp-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.connect-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+}
+
 .exp-container, .connect-container {
     background-color: rgb(154, 115, 65);
     border: 5px solid black;
     padding: 30px;
 }
+
+
+.icon {
+    height: 30px;
+}
+
 
