@@ -1,0 +1,39 @@
+{
+  "sections": {
+    "lan-grid": ["Javascript", "HTML", "CSS", "Lua", "Python", "Java", "Kotlin", "C#"],
+    "frame-grid": ["Springboot", "React", "Angular", "Bootstrap", "Flask"],
+    "tools-grid": ["Git", "GitHub", "Android Studio", "Roblox Studio", "Unity", "Visual Studio Code", "Postman", "Docker"],
+    "database-grid": ["SQL", "MYSQL", "MongoDB", "AWS"],
+    "soft-grid": ["Detail-Oriented", "Effective Communication", "Time-Management", "Teamwork"]
+  },
+  "iconMap": {
+    "kotlin": "kotlin.svg",
+    "lua": "lua.svg",
+    "c#": "c-sharp.svg",
+    "bootstrap": "bootstrap.svg",
+    "mongodb": "mongodb.svg",
+    "aws": "aws.svg",
+    "react": "react.svg"
+  },
+  "skillData": {
+    "Javascript": { "level": "nov", "type": "front" },
+    "HTML": { "level": "int", "type": "front" },
+    "CSS": { "level": "int", "type": "front" },
+    "Lua": { "level": "int", "type": "game" },
+    "Python": { "level": "nov", "type": "back" },
+    "Java": { "level": "nov", "type": "back" },
+    "Kotlin": { "level": "nov", "type": "front" },
+    "C#": { "level": "nov", "type": "game" },
+    "Bootstrap": { "level": "nov", "type": "front" },
+    "React": { "level": "nov", "type": "front" },
+    "Flask": { "level": "nov", "type": "back" },
+    "Unity": { "level": "nov", "type": "game" },
+    "Roblox Studio": { "level": "int", "type": "game" },
+    "Postman": { "level": "nov", "type": "back" },
+    "Docker": { "level": "nov", "type": "back" },
+    "Visual Studio Code": { "level": "int", "type": "" },
+    "Git": { "level": "int", "type": "" },
+    "GitHub": { "level": "int", "type": "" },
+    "Android Studio": { "level": "nov", "type": "" }
+  }
+}

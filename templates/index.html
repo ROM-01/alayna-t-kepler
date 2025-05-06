@@ -51,7 +51,7 @@
     <section id="about">
         <h2>Introduction</h2>
 
-
+        <div class="about-container">
         <div class="card-about">
             <div class="bg-card"></div>
             <div class="about-overlay"></div>
@@ -69,6 +69,13 @@
                 🌟Outside of tech, I enjoy creative pursuits such as in traditional and digital art, content
                 creation,
                 philosophy/psychology topics, or diving into any project that sparks my curiosity!🌟"</p>
+        </div>
+
+        <div class="card-about2">
+            <div class="bg-card"></div>
+            <div class="about-overlay"></div>
+            <p class="about-bio">Something</p>
+        </div>
         </div>
     </section>
 
@@ -137,6 +144,8 @@
                 </div>
 
                 <div class="exp-side">
+                    <div class="exp-side-overlay"></div>
+    
                     <div class="skills-company-wrapper">
                         <div class="exp-company">Company:
                             <div class="exp-company-text">&nbspNone
@@ -182,127 +191,85 @@
         <div class="skills-wrapper">
             <div class="skills-overlay"></div>
             <div class="skills-bg"></div>
-            <div class="skills-nav-container">
-                <nav class="skills-nav-header">
-                    <button id="lan" class="skills-nav-btn">Languages</button>
-                    <button id="frame" class="skills-nav-btn">Frameworks</button>
-                    <button id="tools" class="skills-nav-btn">Tools</button>
-                    <button id="database" class="skills-nav-btn">Databases</button>
-                    <button id="soft" class="skills-nav-btn">Soft Skills</button>
-                </nav>
-            </div>
 
-            <div class="skills-column">
-
-                <div class="tab-btn-wrapper">
-                    <img class="tab-btn" src="/icons/right-arrow (1).png" alt="">
-                </div>
-
-                <div class="skills-tab">
-                    <div class="radio-levels">
-
-                        <div class="radio-column">
-                            <input id="nov-rad" class="skills-radio" type="radio" name="filter" id="novice">
-                            <label for="novice">Novice</label>
+            <div>
+                <div class="skills-nav-container">
+                    <div class="skills-nav-and-radio">
+                        <div class="skills-tab" id="skills-tab">
+                            <div class="radio1">
+                                <div class="radio-column">
+                                    <input id="nov-rad" class="skills-radio1" type="radio" name="level-filter"
+                                        value="nov">
+                                    <label for="nov-rad">Novice</label>
+                                </div>
+                                <div class="radio-column">
+                                    <input id="int-rad" class="skills-radio1" type="radio" name="level-filter"
+                                        value="int">
+                                    <label for="int-rad">Intermediate</label>
+                                </div>
+                                <div class="radio-column">
+                                    <input id="adv-rad" class="skills-radio1" type="radio" name="level-filter"
+                                        value="adv">
+                                    <label for="adv-rad">Advanced</label>
+                                </div>
+                            </div>
+                            <div class="radio2">
+                                <div class="radio-column">
+                                    <input id="front-rad" class="skills-radio2" type="radio" name="type-filter"
+                                        value="front">
+                                    <label for="front-rad">Frontend</label>
+                                </div>
+                                <div class="radio-column">
+                                    <input id="back-rad" class="skills-radio2" type="radio" name="type-filter"
+                                        value="back">
+                                    <label for="back-rad">Backend</label>
+                                </div>
+                                <div class="radio-column">
+                                    <input id="game-rad" class="skills-radio2" type="radio" name="type-filter"
+                                        value="game">
+                                    <label for="game-rad">Game Dev</label>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="radio-column">
-                            <input id="int-rad" class="skills-radio" type="radio" name="filter" id="intermediate">
-                            <label for="intermediate">Intermediate</label>
+                        <div class="tab-btn-wrapper">
+                            <img class="tab-btn" src="/icons/right-arrow (1).png" alt="Toggle Filters">
                         </div>
-
-                        <div class="radio-column">
-                            <input id="adv-rad" class="skills-radio" type="radio" name="filter" id="advanced">
-                            <label for="advanced">Advanced</label>
-                        </div>
-
                     </div>
 
                     <div>
-                        <div class="radio-column">
-                            <input id="front-rad" class="skills-radio1" type="radio" name="filter" id="frontend">
-                            <label for="frontend">Frontend</label>
-                        </div>
+                        <nav class="skills-nav-header">
+                            <button id="lan" class="skills-nav-btn">Languages</button>
+                            <button id="frame" class="skills-nav-btn">Frameworks</button>
+                            <button id="tools" class="skills-nav-btn">Tools</button>
+                            <button id="database" class="skills-nav-btn">Databases</button>
+                            <button id="soft" class="skills-nav-btn">Soft Skills</button>
+                        </nav>
 
-                        <div class="radio-column">
-                            <input id="back-rad" class="skills-radio1" type="radio" name="filter" id="backend">
-                            <label for="backend">Backend</label>
-                        </div>
-
-                        <div class="radio-column">
-                            <input id="game-rad" class="skills-radio1" type="radio" name="filter" id="gamedev">
-                            <label for="gamedev">Game Dev</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-content-container">
-                    <div class="skills-content">
-                        <div id="lan-grid" class="grid">
-                            <div data-level="int" data-type="front" class="skills-content-element">HTML<img
-                                    class="skills-icon" src="/icons/html-5 (2).png" alt=""></div>
-                            <div data-level="int" data-type="front" class="skills-content-element">CSS<img
-                                    class="skills-icon" src="/icons/css-3 (1).png" alt=""></div>
-                            <div data-level="nov" data-type="front" class="skills-content-element">JavaScript<img
-                                    class="skills-icon" src="/icons/js.png" alt=""></div>
-                            <div data-level="nov" data-type="back" class="skills-content-element">&nbspJava <img
-                                    class="skills-icon" src="/icons/java.png" alt=""></div>
-                            <div data-level="nov" data-type="front" class="skills-content-element">Kotlin <img
-                                    class="skills-icon" src="/icons/Kotlin Full Color Logo Mark RGB.svg" alt=""></div>
-                            <div data-level="int" data-type="game" class="skills-content-element">Lua <img
-                                    class="skills-icon" src="/icons/lua-svgrepo-com.svg" alt=""></div>
-                            <div data-level="nov" data-type="back" class="skills-content-element">Python <img
-                                    class="skills-icon" src="/icons/python.png" alt=""></div>
-                            <div data-level="nov" data-type="game" class="skills-content-element">C# <img
-                                    class="skills-icon" src="/icons/c-sharp-c.svg" alt=""></div>
-                        </div>
-
-                        <div id="frame-grid" class="grid">
-                            <div data-level="nov" data-type="back">Springboot</div>
-                            <div data-level="nov" data-type="front">React</div>
-                            <div data-level="nov" data-type="front">Angular</div>
-                            <div data-level="nov" data-type="front">Bootstrap</div>
-                            <div data-level="nov" data-type="back">Flask</div>
-                        </div>
-
-                        <div id="tools-grid" class="grid">
-                            <div data-level="int" data-type="">Git</div>
-                            <div data-level="int" data-type="">GitHub</div>
-                            <div data-level="nov" data-type="">Android Studio</div>
-                            <div data-level="int" data-type="game">Roblox Studio</div>
-                            <div data-level="nov" data-type="game">Unity</div>
-                            <div data-level="int" data-type="">Visual Studio Code</div>
-                            <div data-level="nov" data-type="back">Postman</div>
-                            <div data-level="nov" data-type="back">Docker</div>
-                        </div>
-
-                        <div id="database-grid" class="grid">
-                            <div data-level="nov" data-type="back">SQL</div>
-                            <div data-level="nov" data-type="back">MYSQL</div>
-                            <div data-level="nov" data-type="back">MongoDB</div>
-                            <div data-level="nov" data-type="back">AWS</div>
-                        </div>
-
-                        <div id="soft-grid" class="grid">
-                            <div>Detail-Oriented</div>
-                            <div>Effective Communication</div>
-                            <div>Time-Management</div>
-                            <div>Teamwork</div>
+                        <div class="skills-content-container">
+                            <div class="skills-content">
+                                <div id="lan-grid" class="grid"></div>
+                                <div id="frame-grid" class="grid"></div>
+                                <div id="tools-grid" class="grid"></div>
+                                <div id="database-grid" class="grid"></div>
+                                <div id="soft-grid" class="grid"></div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-        </div>
         </div>
     </section>
 
     <section id="projects">
         <h2>Projects</h2>
-        <div>
-            <ul>
+        <div class="project-container">
+            <div class="project-bg"></div>
+            <div class="project-overlay"></div>
+            <div>
+                <ul>
 
-            </ul>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -314,8 +281,9 @@
     <section id="connect">
         <h2 class="con-title">Connect</h2>
         <div class="connect-container">
+            <div class="connect-bg"></div>
+            <div class="connect-overlay"></div>
             <div class="connect-list">
-
                 <div>
                     <img class="icon" src="/images/linkedin.png" alt="">
                     <a href="https://www.linkedin.com/in/just-getting-started/" target="_blank">LinkedIn</a>
@@ -331,15 +299,15 @@
                     <a href="https://github.com/ROM-01" target="_blank">Gmail</a>
                 </div>
             </div>
+            <footer>
+                <div>
+                    <a href="/templates/game-menu.html">Game Menu</a>
+                </div>
+            </footer>
         </div>
     </section>
 
-    <div>
-        <a href="/templates/game-menu.html">Game Menu</a>
-    </div>
-
-    <script src="/app/index.js"></script>
-    </div>
+    <script type="module" src="/scripts/index.js"></script>
 </body>
 
 </html>
