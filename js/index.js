@@ -29,8 +29,7 @@ accordionHeaders.forEach((header) => {
             accordionContent.style.maxHeight = "0"
         }
 
-        //updating company, skills, content
-
+        //Updating company, skills, content
         if (header.id === "exp-item1") {
             const existingVideo = expContent.querySelector("video")
             if (existingVideo) {
@@ -170,11 +169,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Fix: Toggle radio visibility and restore layout on re-expand
     const toggleBtn = document.querySelector(".tab-btn-wrapper");
     const skillsTab = document.querySelector(".skills-tab");
 
-    // 🔽 Start collapsed
     toggleBtn.classList.add("collapsed");
     skillsTab.style.display = "none";
 
@@ -186,8 +183,6 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             skillsTab.style.display = "block";
         }
-
-        // Rotate arrow
         toggleBtn.classList.toggle("rotated");
     });
 
@@ -223,19 +218,15 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }, { threshold: 0.6 });
-
     sections.forEach(section => sectionObserver.observe(section));
 });
 
-//Lesson 11
 const today = new Date()
 const thisYear = today.getFullYear()
-const footer = document.querySelector("footer")
-const copyright = document.createElement("p")
+const footer = document.createElement("footer")
 
-copyright.innerHTML = `Alayna Taylor ${thisYear}©`
-
-footer.appendChild(copyright)
+footer.innerHTML = `Alayna Taylor ${thisYear} &copy`
+document.querySelector(".connect-container").appendChild(footer)
 
 //Dynamically add list/skill elements
 const sections = {

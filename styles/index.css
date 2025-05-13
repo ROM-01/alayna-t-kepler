@@ -149,7 +149,7 @@ body::-webkit-scrollbar-thumb:hover {
     margin-top: -15px;
 }
 
-section {
+#about, #skills, #projects, #experience {
     padding: 20px;
     margin: 20px;
     margin-bottom: 80px;
@@ -831,8 +831,6 @@ a:active {
     justify-content: center;
     box-sizing: border-box;
     border-radius: 10px;
-    margin-left: -40px;
-    margin-right: -40px;
 }
 
 .connect-bg {
