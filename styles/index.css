@@ -876,10 +876,45 @@ a:active {
     gap: 40px;
 }
 
-/* Footer */
+/* Form */
 
-footer {
-    
+.message-form {
+    display: flex;
+    flex-direction: column;
+    font-size: 3vw;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+#users-name, #users-email, #users-message, .form-btn{
+    margin: auto;
+    margin-bottom: 4vw;
+}
+#users-name, #users-email {
+    padding: 1vw 5vw;
+}
+#users-message {
+    padding: 5vw 10vw;
+}
+
+.form-btn {
+    font-size: 2vw;
+}
+
+/* Messages */
+#messages {
+    display: block;
+}
+
+.messages-list {
+    list-style: none;
+    font-size: 3vw;
+}
+
+@media screen and (max-width: 600px){
+    .message-form, .messages-list {
+        font-size: 5vw;
+    }
 }
 
 @keyframes glitchTop {
