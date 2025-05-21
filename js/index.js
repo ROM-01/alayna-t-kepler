@@ -636,3 +636,4 @@ function setupCarousel() {
 
     update();
 }
+
