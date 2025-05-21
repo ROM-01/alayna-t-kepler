@@ -207,7 +207,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         sideMenuBtn.classList.toggle("rotated");
     });
-    
 
 
     const buttons = document.querySelectorAll(".skills-nav-btn");
