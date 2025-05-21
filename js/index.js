@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
             filterGrid();
         });
     });
-    
+
 
     typeRadios.forEach(radio => {
         radio.addEventListener("click", () => {
@@ -612,7 +612,7 @@ fetch("https://api.github.com/users/ROM-01/repos")
         setupCarousel();
     }).catch(error => {
         console.error('Error:', error)
-});
+    });
 
 function setupCarousel() {
     const track = document.querySelector(".carousel-track");
