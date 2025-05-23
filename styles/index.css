@@ -1372,20 +1372,93 @@ a:active {
 
 /* Dialog */
 
-#dialog {
+.bell-container img {
+    position: fixed;
+    width: 5vw;
+    bottom: 0;
+    right: 0;
+    padding: 1em;
+    z-index: 3;
+}
 
+#dialog {
+    display: none;
 }
 
 .dialog-container {
+    position: fixed;
+    height: fit-content;
+    width: 96vw;
+    display: flex;
+    flex-direction: row;
+    bottom: 0;
     background-color: #100020;
+    box-sizing: content-box;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 10px ;
+    z-index: 5;
+}
+
+.dialog-img-wrapper {
+    padding: 1vw;
+    width: 12vw;
+    border-radius: 15px;
 }
 
 .dialog-img {
-
+    width: 12vw;
+    border-radius: 15px;
 }
 
 .dialog-textbox {
+    background-color:#01b7ea;
+    width: 100%;
+}
 
+.dialog-textbox-top {
+    display: flex;
+    flex-direction: row;
+}
+
+.dialog-textbox-top h4 {
+    width: 20vw;
+    background-color:#39099b;
+    font-size: 2.5vw;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin: 0;
+    padding-top: 1vw;
+    padding-bottom: 0.5vw;
+}
+
+.dialog-textbox-top img {
+    width: 2vw;
+    margin-left: auto;
+    padding-right: 2vw;
+    cursor: pointer;
+}
+
+.dialog-textbox-bottom {
+    height: 100%;
+    font-size: 2vw;
+    text-align: left;
+    background-color: #220051;
+    margin: 0;
+    padding-left: 1vw;
+    padding-top: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 1vw;
+}
+
+.dialog-textbox-bottom p {
+    background-color: #1d0133;
+    margin: 0;
+    border-radius: 10px;
+    padding-left: 2vw;
+    padding-top: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 7vw;
 }
 
 @keyframes glitchTop {
