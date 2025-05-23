@@ -31,11 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 });
 
-const playlist = [
-    { name: "Title Theme", src: "/audio/xDeviruchi - Title Theme .wav" }, { name: "Prepare for Battle!", src: "/audio/xDeviruchi - Prepare for Battle! .wav" }, { name: "Decisive Battle", src: "/audio/xDeviruchi - Decisive Battle.wav" },
+const playlist = [{ name: "Title Theme", src: "/audio/xDeviruchi - Title Theme .wav" }, { name: "Prepare for Battle!", src: "/audio/xDeviruchi - Prepare for Battle! .wav" }, { name: "Decisive Battle", src: "/audio/xDeviruchi - Decisive Battle.wav" },
+    
 ];
 
 const audio = document.getElementById("audio");
+audio.volume = 0.3;
 const nowPlaying = document.getElementById("now-playing");
 const nextBtn = document.getElementById("music-next-btn");
 const prevBtn = document.getElementById("music-prev-btn");
@@ -80,8 +81,6 @@ loadSong(currentIndex)
 
 
 
-
-//Accordion
 const accordionHeaders = document.querySelectorAll(".accordion-header")
 const accordionContents = document.querySelectorAll(".accordion-content")
 
@@ -92,18 +91,6 @@ const expCity = document.querySelector(".exp-city-text")
 const expDate = document.querySelector(".exp-date-text")
 const resume = document.querySelector(".resume-pdf");
 
-
-function clearSideContent() {
-    const existingVideo = expContent.querySelector("video");
-    if (existingVideo) {
-        existingVideo.remove();
-    }
-
-    expCompany.innerHTML = "&nbspNone"
-    expSkills.innerHTML = "&nbspNone"
-    expCity.innerHTML = "&nbspNone"
-    expDate.innerHTML = "&nbspNone"
-}
 
 accordionHeaders.forEach((header) => {
     header.addEventListener("click", () => {
@@ -123,11 +110,7 @@ accordionHeaders.forEach((header) => {
             accordionContent.style.maxHeight = accordionContent.scrollHeight + "px"
         } else {
             accordionContent.style.maxHeight = "0"
-            clearSideContent();
-            return;
         }
-
-        clearSideContent();
 
         //Updating company, skills, content
         if (header.id === "exp-item1") {
@@ -166,8 +149,8 @@ accordionHeaders.forEach((header) => {
             video.append(source)
             video.setAttribute("autoplay", "")
             video.setAttribute("controls", "")
-            video.style.width = "90%";
-            video.style.maxHeight = "400px";
+            video.style.width = "90%"
+            video.style.maxHeight = "400px"
             expContent.append(video)
         } else if (header.id === "exp-item4") {
             const existingVideo = expContent.querySelector("video")
@@ -207,7 +190,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         sideMenuBtn.classList.toggle("rotated");
     });
-
 
     const buttons = document.querySelectorAll(".skills-nav-btn");
     const contentContainer = document.querySelector(".skills-content-container");
@@ -262,7 +244,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-
     typeRadios.forEach(radio => {
         radio.addEventListener("click", () => {
             if (radio.dataset.selected === "true") {
@@ -308,6 +289,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Highlight nav tab based on scroll position
+    const skillSections = document.querySelectorAll(".grid");
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const id = entry.target.id.split("-")[0];
+            const navBtn = document.getElementById(id);
+            if (entry.isIntersecting) {
+                buttons.forEach(btn => btn.classList.remove("active-skill-tab"));
+                navBtn.classList.add("active-skill-tab");
+            }
+        });
+    }, { threshold: 0.5 });
+
+    skillSections.forEach(section => observer.observe(section));
+
+    // Highlight nav tab based on scroll position
     const navElements = document.querySelectorAll("#page-nav .nav-element");
     const sectionIds = Array.from(navElements).map(el =>
         el.querySelector("a").getAttribute("href").substring(1)
@@ -339,180 +335,179 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     observedSections.forEach(section => sectionObserver.observe(section));
+})
 
+const today = new Date()
+const thisYear = today.getFullYear()
+const footer = document.createElement("footer")
 
-    const today = new Date()
-    const thisYear = today.getFullYear()
-    const footer = document.createElement("footer")
+footer.innerHTML = `Alayna Taylor ${thisYear} &copy`
+document.querySelector(".connect-container").appendChild(footer)
 
-    footer.innerHTML = `Alayna Taylor ${thisYear} &copy`
-    document.querySelector(".connect-container").appendChild(footer)
+//Dynamically add list/skill elements
+const sections = {
+    "lan-grid": [
+        "Javascript", "HTML", "CSS", "Lua", "Python", "Java", "Kotlin", "C#"
+    ],
+    "frame-grid": [
+        "Springboot", "React", "Angular", "Bootstrap", "Flask"
+    ],
+    "tools-grid": [
+        "Git", "GitHub", "Android Studio", "Roblox Studio", "Unity", "Visual Studio Code", "Postman", "Docker"
+    ],
+    "database-grid": [
+        "SQL", "MYSQL", "MongoDB", "AWS"
+    ],
+    "soft-grid": [
+        "Detail-Oriented", "Effective Communication", "Time-Management", "Teamwork"
+    ]
+};
 
-    //Dynamically add list/skill elements
-    const sections = {
-        "lan-grid": [
-            "Javascript", "HTML", "CSS", "Lua", "Python", "Java", "Kotlin", "C#"
-        ],
-        "frame-grid": [
-            "Springboot", "React", "Angular", "Bootstrap", "Flask"
-        ],
-        "tools-grid": [
-            "Git", "GitHub", "Android Studio", "Roblox Studio", "Unity", "Visual Studio Code", "Postman", "Docker"
-        ],
-        "database-grid": [
-            "SQL", "MYSQL", "MongoDB", "AWS"
-        ],
-        "soft-grid": [
-            "Detail-Oriented", "Effective Communication", "Time-Management", "Teamwork"
-        ]
-    };
+const iconMap = {
+    "kotlin" : "kotlin.svg",
+    "lua" : "lua.svg",
+    "c#" : "c-sharp.svg",
+    "bootstrap" : "bootstrap.svg",
+    "react" : "react.svg",
+    "springboot": "springboot.svg",
+    "flask" : "flask.svg",
+    "git" : "git.svg",
+    "github" : "github.jpg",
+    "android studio" : "android-studio.svg",
+    "roblox studio" : "roblox-studio.svg",
+    "unity" : "unity.jpg",
+    "visual studio code" : "visual-code.svg",
+    "docker" : "docker.svg",
+    "aws" : "aws.svg",
+    "mongodb" : "mongodb.svg",
+    "mysql" : "mysql.svg"
+}
 
-    const iconMap = {
-        "kotlin": "kotlin.svg",
-        "lua": "lua.svg",
-        "c#": "c-sharp.svg",
-        "bootstrap": "bootstrap.svg",
-        "react": "react.svg",
-        "springboot": "springboot.svg",
-        "flask": "flask.svg",
-        "git": "git.svg",
-        "github": "github.jpg",
-        "android studio": "android-studio.svg",
-        "roblox studio": "roblox-studio.svg",
-        "unity": "unity.jpg",
-        "visual studio code": "visual-code.svg",
-        "docker": "docker.svg",
-        "aws": "aws.svg",
-        "mongodb": "mongodb.svg",
-        "mysql": "mysql.svg"
-    }
+const skillData = {
+    //Lang
+    "Javascript": { level: "nov", type: "front" },
+    "HTML": { level: "int", type: "front" },
+    "CSS": { level: "int", type: "front" },
+    "Lua": { level: "int", type: "game" },
+    "Python": { level: "nov", type: "back" },
+    "Java": { level: "nov", type: "back" },
+    "Kotlin": { level: "nov", type: "front" },
+    "C#": { level: "nov", type: "game" },
+    //Frame
+    "Springboot": { level: "nov", type: "back" },
+    "React": { level: "nov", type: "front" },
+    "Angular": { level: "nov", type: "front" },
+    "Bootstrap": { level: "nov", type: "front" },
+    "Flask": { level: "nov", type: "back" },
+    //Tools
+    "Git": { level: "int", type: "" },
+    "GitHub": { level: "int", type: "" },
+    "Android Studio": { level: "nov", type: "" },
+    "Roblox Studio": { level: "int", type: "game" },
+    "Unity": { level: "nov", type: "game" },
+    "Visual Studio Code": { level: "int", type: "" },
+    "Postman": { level: "nov", type: "back" },
+    "Docker": { level: "nov", type: "back" },
+    //Database
+    "SQL": { level: "nov", type: "back" },
+    "MYSQL": { level: "nov", type: "back" },
+    "MongoDB": { level: "nov", type: "back" },
+    "AWS": { level: "nov", type: "back" },
+    //Soft
+    "Detail-Oriented": { level: "", type: "" },
+    "Effective Communication": { level: "", type: "" },
+    "Time-Management": { level: "", type: "" },
+    "Teamwork": { level: "", type: "" },
+}
 
-    const skillData = {
-        //Lang
-        "Javascript": { level: "nov", type: "front" },
-        "HTML": { level: "int", type: "front" },
-        "CSS": { level: "int", type: "front" },
-        "Lua": { level: "int", type: "game" },
-        "Python": { level: "nov", type: "back" },
-        "Java": { level: "nov", type: "back" },
-        "Kotlin": { level: "nov", type: "front" },
-        "C#": { level: "nov", type: "game" },
-        //Frame
-        "Springboot": { level: "nov", type: "back" },
-        "React": { level: "nov", type: "front" },
-        "Angular": { level: "nov", type: "front" },
-        "Bootstrap": { level: "nov", type: "front" },
-        "Flask": { level: "nov", type: "back" },
-        //Tools
-        "Git": { level: "int", type: "" },
-        "GitHub": { level: "int", type: "" },
-        "Android Studio": { level: "nov", type: "" },
-        "Roblox Studio": { level: "int", type: "game" },
-        "Unity": { level: "nov", type: "game" },
-        "Visual Studio Code": { level: "int", type: "" },
-        "Postman": { level: "nov", type: "back" },
-        "Docker": { level: "nov", type: "back" },
-        //Database
-        "SQL": { level: "nov", type: "back" },
-        "MYSQL": { level: "nov", type: "back" },
-        "MongoDB": { level: "nov", type: "back" },
-        "AWS": { level: "nov", type: "back" },
-        //Soft
-        "Detail-Oriented": { level: "", type: "" },
-        "Effective Communication": { level: "", type: "" },
-        "Time-Management": { level: "", type: "" },
-        "Teamwork": { level: "", type: "" },
-    }
+for (const [gridId, skillList] of Object.entries(sections)) {
+    const grid = document.getElementById(gridId);
 
-    for (const [gridId, skillList] of Object.entries(sections)) {
-        const grid = document.getElementById(gridId);
+    skillList.forEach(skillName => {
+        const gridElement = document.createElement("div");
+        gridElement.classList.add("skills-content-element");
+        gridElement.innerHTML = skillName;
 
-        skillList.forEach(skillName => {
-            const gridElement = document.createElement("div");
-            gridElement.classList.add("skills-content-element");
-            gridElement.innerHTML = skillName;
+        const img = document.createElement("img");
+        img.classList.add("skills-icon");
+        img.alt = skillName;
 
-            const img = document.createElement("img");
-            img.classList.add("skills-icon");
-            img.alt = skillName;
+        const iconKey = skillName.toLowerCase();
+        const fileName = iconMap[iconKey] || `${iconKey}.png`;
+        img.src = `/icons/${fileName}`;
 
-            const iconKey = skillName.toLowerCase();
-            const fileName = iconMap[iconKey] || `${iconKey}.png`;
-            img.src = `/icons/${fileName}`;
+        gridElement.appendChild(img);
 
-            gridElement.appendChild(img);
+        const data = skillData[skillName];
+        if (data) {
+            gridElement.setAttribute("data-level", data.level);
+            gridElement.setAttribute("data-type", data.type);
+        }
 
-            const data = skillData[skillName];
-            if (data) {
-                gridElement.setAttribute("data-level", data.level);
-                gridElement.setAttribute("data-type", data.type);
-            }
+        grid.appendChild(gridElement);
+    })
+}
 
-            grid.appendChild(gridElement);
-        });
-    }
+//lesson 12
+const messageForm = document.querySelector('form[name = "leave_message"]')
 
-    //lesson 12
-    const messageForm = document.querySelector('form[name = "leave_message"]')
+messageForm.addEventListener("submit", (event) => {
+    event.preventDefault()
 
-    messageForm.addEventListener("submit", (event) => {
-        event.preventDefault()
+    const userName = event.target.usersName.value;
+    const userEmail = event.target.usersEmail.value;
+    const userMessage = event.target.usersMessage.value;
 
-        const userName = event.target.usersName.value;
-        const userEmail = event.target.usersEmail.value;
-        const userMessage = event.target.usersMessage.value;
+    console.log(userName, userEmail, userMessage)
 
-        console.log(userName, userEmail, userMessage)
+    const messageSection = document.getElementById("messages")
+    const messageList = messageSection.querySelector("ul")
 
-        const messageSection = document.getElementById("messages")
-        const messageList = messageSection.querySelector("ul")
-
-        const newMessage = document.createElement("li")
-        newMessage.innerHTML = `<a href="mailto:${userEmail}">${userName}</a> 
+    const newMessage = document.createElement("li")
+    newMessage.innerHTML = `<a href="mailto:${userEmail}">${userName}</a> 
     <span>: ${userMessage}</>`
 
-        //Remove message
-        const removeButton = document.createElement("button");
-        removeButton.innerText = "remove"
-        removeButton.type = "button"
-        //style
-        removeButton.style.margin = "2px"
-        removeButton.style.fontSize = "1vw"
+    //Remove message
+    const removeButton = document.createElement("button");
+    removeButton.innerText = "remove"
+    removeButton.type = "button"
+    //style
+    removeButton.style.margin = "2px"
+    removeButton.style.fontSize = "1vw"
 
-        removeButton.addEventListener("click", () => {
-            const entry = removeButton.parentNode
-            entry.remove()
-        })
-
-        //Edit message
-        const editButton = document.createElement("button");
-        editButton.innerText = "edit"
-        editButton.type = "button"
-        //style
-        editButton.style.margin = "10px"
-        editButton.style.fontSize = "1vw"
-
-        editButton.addEventListener("click", () => {
-            const entry = editButton.parentNode
-            const messageSpan = entry.querySelector("span");
-
-            const newMessage = prompt("Edit your message:");
-
-            if (newMessage !== null && newMessage.trim() !== "") {
-                messageSpan.textContent = ` wrote: ${newMessage}`;
-            }
-        })
-
-        newMessage.appendChild(editButton)
-        newMessage.appendChild(removeButton)
-        messageList.appendChild(newMessage)
-
-        //Make messages visible
-        messageSection.style.display = "block"
-
-        //Clear form
-        messageForm.reset()
+    removeButton.addEventListener("click", () => {
+        const entry = removeButton.parentNode
+        entry.remove()
     })
+
+    //Edit message
+    const editButton = document.createElement("button");
+    editButton.innerText = "edit"
+    editButton.type = "button"
+    //style
+    editButton.style.margin = "10px"
+    editButton.style.fontSize = "1vw"
+
+    editButton.addEventListener("click", () => {
+        const entry = editButton.parentNode
+        const messageSpan = entry.querySelector("span");
+
+        const newMessage = prompt("Edit your message:");
+
+        if (newMessage !== null && newMessage.trim() !== "") {
+            messageSpan.textContent = ` wrote: ${newMessage}`;
+        }
+    })
+
+    newMessage.appendChild(editButton)
+    newMessage.appendChild(removeButton)
+    messageList.appendChild(newMessage)
+
+    //Make messages visible
+    messageSection.style.display = "block"
+
+    //Clear form
+    messageForm.reset()
 })
 
 // lesson 13
@@ -636,4 +631,86 @@ function setupCarousel() {
 
     update();
 }
+
+//Dialog
+const bell = document.querySelector(".bell-container img");
+const dialog = document.getElementById("dialog");
+const dialogText = document.querySelector(".dialog-textbox-bottom p");
+const dialogExit = document.querySelector(".dialog-textbox-top img");
+const bell_audio = new Audio('/audio/notification-sound.mp3')
+
+let typingInterval;
+let isDialogReady = false;
+let currentDialogText = "";
+let dia_audio = new Audio('/audio/medium-text-blip-14855.mp3');
+
+
+
+// Set default bell image
+bell.src = "/icons/bell (2).png";
+
+// Dialog text mapping
+const dialogData = {
+    "#exp-item1": "This is a message about item 1.",
+    "#exp-item2": "You clicked on item 2. It’s very interesting!",
+    "#exp-item3": "Here’s something cool about item 3.",
+    "#exp-item4": "Here’s something cool about item 4.",
+};
+
+// Set up triggers
+Object.keys(dialogData).forEach(selector => {
+    const trigger = document.querySelector(selector);
+    if (trigger) {
+        trigger.addEventListener("click", () => {
+            bell_audio.play()
+            currentDialogText = dialogData[selector];
+            isDialogReady = true;
+            bell.src = "/icons/bell-notif.png";
+            bell.style.cursor = "pointer";
+        });
+    }
+});
+
+// Bell click: only works if a trigger has been clicked
+bell.addEventListener("click", () => {
+    if (!isDialogReady) return;
+
+    dialog.style.display = "flex";
+    bell.src = "/icons/bell (2).png";
+    bell.style.cursor = "default";
+    isDialogReady = false;
+
+    startTyping(currentDialogText);
+});
+
+// Exit button
+dialogExit.addEventListener("click", () => {
+    dialog.style.display = "none";
+    clearInterval(typingInterval);
+    dia_audio.pause();
+    dia_audio.currentTime = 0;
+    dialogText.textContent = "";
+});
+
+// Typewriter effect with sound
+function startTyping(text) {
+    let index = 0;
+    dialogText.textContent = "";
+    clearInterval(typingInterval);
+
+    dia_audio.currentTime = 0;
+    dia_audio.play();
+
+    typingInterval = setInterval(() => {
+        if (index < text.length) {
+            dialogText.textContent += text.charAt(index);
+            index++;
+            
+        } else {
+            clearInterval(typingInterval);
+            dia_audio.pause();
+        }
+    }, 50);
+}
+
 
