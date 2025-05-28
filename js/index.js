@@ -1,25 +1,137 @@
+const clickSound = new Audio('/audio/select-sound-121244.mp3')
+
+clickSound.preload = 'auto'
+clickSound.volume = 0.3
+
+document.addEventListener('click', () => {
+    clickSound.currentTime = 0;
+    clickSound.play().catch(e => {
+
+    })
+})
+
+
+const coords = { x: 0, y: 0 };
+const circles = document.querySelectorAll(".square");
+
+const colors = [
+    "#f794e5",
+    "#f794e5",
+    "#e48ef4",
+    "#d1b3ff",
+    "#d37bf7",
+    "#b3a1ff",
+    "#a398ff",
+    "#938eff",
+    "#8385ff",
+    "#737bff",
+    "#6381ff",
+    "#5397ff",
+    "#43adff",
+    "#33c3ff",
+    "#23d9ff",
+    "#13efff",
+    "#0fffff", 
+    "#1fffe5",
+    "#3fffcc",
+    "#5fffb3",
+    "#7fff99"
+];
+
+circles.forEach(function (circle, index) {
+    circle.x = 0;
+    circle.y = 0;
+    circle.style.backgroundColor = colors[index % colors.length];
+});
+
+window.addEventListener("mousemove", function (e) {
+    coords.x = e.clientX;
+    coords.y = e.clientY;
+
+});
+
+function animateCircles() {
+
+    let x = coords.x;
+    let y = coords.y;
+
+    circles.forEach(function (circle, index) {
+        circle.style.left = x - 12 + "px";
+        circle.style.top = y - 12 + "px";
+
+        circle.style.scale = (circles.length - index) / circles.length;
+
+        circle.x = x;
+        circle.y = y;
+
+        const nextCircle = circles[index + 1] || circles[0];
+        x += (nextCircle.x - x) * 0.3;
+        y += (nextCircle.y - y) * 0.3;
+    });
+
+    requestAnimationFrame(animateCircles);
+}
+animateCircles();
+
+const container = document.querySelector('.pfp-wrapper');
+
+function shootSparkles(side) {
+    const sparkleCount = 10; // sparkles count
+    for (let i = 0; i < sparkleCount; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+
+        // Spread vertically
+        sparkle.style.top = `${70 + Math.random() * 70}px`;
+
+        // Spread more horizontally from center
+        const baseLeft = side === 'left' ? 20 : 70;
+        const offset = (Math.random() - 0.5) * 20;
+        sparkle.style.left = `${baseLeft + offset}%`;
+
+        // Randomize slight angle
+        sparkle.style.transform = `rotate(${(Math.random() - 0.5) * 30}deg)`;
+
+        sparkle.style.animationName = side === 'left' ? 'shoot-left' : 'shoot-right';
+        sparkle.style.animationDuration = `${1 + Math.random()}s`;
+        sparkle.style.animationTimingFunction = 'ease-out';
+
+        container.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 2000);
+    }
+}
+
+setInterval(() => {
+    shootSparkles('left');
+    shootSparkles('right');
+}, 3000);
+
+
+
 const quoteElement = document.querySelector(".dev-quote")
 const usedIndexes = new Set()
 
-const quotes = ['"The problem with the world is that the smart ones are skeptical, and the idiots have confidence." - Charles Bukowski', '"If you want the rainbow, you gotta put up with the rain.” - Dolly Parton', '"People cannot be knowledgeable about everything but they can be knowledgeable about the extent of their own ignorance" -Thomas Sowell', '"When exposing a crime is treated as committing a crime, you are being ruled by criminals” - Edward Snowden', '"If it\'s your job to eat a frog, it\'s best to do it first thing in the morning. And if it\'s your job to eat two frogs, it\'s best to eat the biggest one first." - Mark Twain']
+const quotes = ['"The problem with the world is that the smart ones are skeptical, and the idiots have confidence." - Charles Bukowski', '"If you want the rainbow, you gotta put up with the rain.” - Dolly Parton', '"People cannot be knowledgeable about everything but they can be knowledgeable about the extent of their own ignorance" -Thomas Sowell', '"When exposing a crime is treated as committing a crime, you are being ruled by criminals” - Edward Snowden', '"If it\'s your job to eat a frog, it\'s best to do it first thing in the morning. And if it\'s your job to eat two frogs, it\'s best to eat the biggest one first." - Mark Twain', '"If you kill a killer, the number of killers in the world remains the same." - Batman', '"Talent without hard work is nothing." - Cristiano Ronaldo']
 
 function generateQuote() {
+    if (!quoteElement) return;
+
     if (usedIndexes.size >= quotes.length) {
-        usedIndexes.clear()
+        usedIndexes.clear();
     }
 
-    while (true) {
-        const randomIdx = Math.floor(Math.random() * quotes.length)
-
-        if (usedIndexes.has(randomIdx)) continue
-
-        const quote = quotes[randomIdx]
-        quoteElement.innerHTML = quote;
-        usedIndexes.add(randomIdx)
-        break
+    let attempts = 0;
+    while (attempts < 100) {
+        const randomIdx = Math.floor(Math.random() * quotes.length);
+        if (!usedIndexes.has(randomIdx)) {
+            quoteElement.textContent = quotes[randomIdx];
+            usedIndexes.add(randomIdx);
+            break;
+        }
+        attempts++;
     }
 }
-generateQuote()
+setInterval(generateQuote, 8000);
 
 
 // Music Player
@@ -36,7 +148,7 @@ const playlist = [{ name: "Title Theme", src: "/audio/xDeviruchi - Title Theme .
 ];
 
 const audio = document.getElementById("audio");
-audio.volume = 0.3;
+audio.volume = 0;
 const nowPlaying = document.getElementById("now-playing");
 const nextBtn = document.getElementById("music-next-btn");
 const prevBtn = document.getElementById("music-prev-btn");
@@ -91,6 +203,18 @@ const expCity = document.querySelector(".exp-city-text")
 const expDate = document.querySelector(".exp-date-text")
 const resume = document.querySelector(".resume-pdf");
 
+function clearSideContent() {
+    const existingVideo = expContent.querySelector("video");
+    if (existingVideo) {
+        existingVideo.remove();
+    }
+
+    expCompany.innerHTML = "&nbspNone"
+    expSkills.innerHTML = "&nbspNone"
+    expCity.innerHTML = "&nbspNone"
+    expDate.innerHTML = "&nbspNone"
+}
+
 
 accordionHeaders.forEach((header) => {
     header.addEventListener("click", () => {
@@ -110,7 +234,10 @@ accordionHeaders.forEach((header) => {
             accordionContent.style.maxHeight = accordionContent.scrollHeight + "px"
         } else {
             accordionContent.style.maxHeight = "0"
+            clearSideContent()
+            return
         }
+        clearSideContent()
 
         //Updating company, skills, content
         if (header.id === "exp-item1") {
@@ -151,6 +278,7 @@ accordionHeaders.forEach((header) => {
             video.setAttribute("controls", "")
             video.style.width = "90%"
             video.style.maxHeight = "400px"
+            expContent.innerHTML = "Content: "
             expContent.append(video)
         } else if (header.id === "exp-item4") {
             const existingVideo = expContent.querySelector("video")
@@ -159,7 +287,7 @@ accordionHeaders.forEach((header) => {
             }
 
             expCompany.innerHTML = "&nbspWalmart"
-            expSkills.innerHTML = "&nbspTeamwork, Time-Management, Efficiency, Loyalty, Customer Service, Friendliness, Attention To Details"
+            expSkills.innerHTML = "&nbspTeamwork, Detail Attention, Time-Management, Loyalty, Customer Service"
             expCity.innerHTML = "&nbspChicago, IL"
             expDate.innerHTML = "&nbsp06/2021-08/2023"
         }
@@ -172,6 +300,44 @@ resume.addEventListener("click", () => {
 })
 
 document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".section");
+
+    const observerSection = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const section = entry.target;
+            const isVisible = entry.isIntersecting;
+
+            // Convert string to boolean safely
+            const alreadyVisible = section.dataset.visible === "true";
+
+            if (isVisible && !alreadyVisible) {
+                section.dataset.visible = "true";
+                section.classList.add("visible");
+            } else if (!isVisible && alreadyVisible) {
+                section.dataset.visible = "false";
+                section.classList.remove("visible");
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    sections.forEach(section => {
+        // Ensure the flag starts off as false
+        section.dataset.visible = "false";
+        observerSection.observe(section);
+    });
+
+    // Initial fade-in for already visible sections
+    setTimeout(() => {
+        sections.forEach(section => {
+            if (section.getBoundingClientRect().top < window.innerHeight) {
+                section.classList.add("visible");
+                section.dataset.visible = "true";
+            }
+        });
+    }, 100);
+
     const sideMenuBtn = document.querySelector(".side-menu-btn");
     const sideMenu = document.querySelector(".side-menu");
 
@@ -250,6 +416,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 radio.checked = false;
                 radio.dataset.selected = "false";
                 selectedType = null;
+
             } else {
                 clearRadio(typeRadios);
                 radio.dataset.selected = "true";
@@ -273,6 +440,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const toggleBtn = document.querySelector(".tab-btn-wrapper");
     const skillsTab = document.querySelector(".skills-tab");
+    const tabBtn = toggleBtn.querySelector(".tab-btn-icon");
 
     toggleBtn.classList.add("collapsed");
     skillsTab.style.display = "none";
@@ -282,10 +450,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (isCollapsed) {
             skillsTab.style.display = "none";
+            
         } else {
             skillsTab.style.display = "block";
+            
         }
-        toggleBtn.classList.toggle("rotated");
+        tabBtn.classList.toggle("rotated");
     });
 
     // Highlight nav tab based on scroll position
@@ -469,7 +639,7 @@ messageForm.addEventListener("submit", (event) => {
 
     //Remove message
     const removeButton = document.createElement("button");
-    removeButton.innerText = "remove"
+    removeButton.innerHTML = "<span>remove</span>"
     removeButton.type = "button"
     //style
     removeButton.style.margin = "2px"
@@ -482,7 +652,7 @@ messageForm.addEventListener("submit", (event) => {
 
     //Edit message
     const editButton = document.createElement("button");
-    editButton.innerText = "edit"
+    editButton.innerHTML = "<span>edit</span>"
     editButton.type = "button"
     //style
     editButton.style.margin = "10px"
@@ -515,48 +685,41 @@ const mediaMap = {
     "alayna-t-kepler": {
         type: "image",
         src: "/images/project-1.png",
-        alt: "Screenshot of Project One"
+        alt: "Screenshot of Project One",
+        status: "Completed"
     },
-    "course-application": {
+    "chicago-art-institute-open-api": {
         type: "image",
-        src: "/images/coming-soon.jpg"
+        src: "/images/coming-soon.jpg",
+        status: "WIP"
+    },
+    "backend-database-practice-application": {
+        type: "image",
+        src: "/images/coming-soon.jpg",
+        status: "Hiatus"
     },
     "crud_application": {
         type: "image",
-        src: "/images/coming-soon.jpg"
+        src: "/images/coming-soon.jpg",
+        status: "Hiatus"
     },
     "flower-gallery-tabs": {
-        type: "video",
-        src: "/videos/gallery-project-24.mov"
+        type: "iframe",
+        src: "https://youtube.com/embed/Q_7mot0U9gI",
+        status: "Completed"
     },
     "game-of-life": {
-        type: "video",
-        src: "/videos/game-of-life.mov"
+        type: "iframe",
+        src: "https://www.youtube.com/embed/jO6rMG_dVIw",
+        status: "Completed"
     },
+    "My-Projects-Application": {
+        type: "image",
+        src: "/images/coming-soon.jpg",
+        status: "Hiatus"
+    }
 
 };
-
-const wip = {
-    "alayna-t-kepler": {
-        status: ""
-    },
-    "course-application": {
-        type: "image",
-        src: "/images/coming-soon.jpg"
-    },
-    "crud_application": {
-        type: "image",
-        src: "/images/coming-soon.jpg"
-    },
-    "flower-gallery-tabs": {
-        type: "video",
-        src: "/videos/gallery-project-24.mov"
-    },
-    "game-of-life": {
-        type: "video",
-        src: "/videos/game-of-life.mov"
-    },
-}
 
 fetch("https://api.github.com/users/ROM-01/repos")
     .then(response => response.json())
@@ -571,24 +734,44 @@ fetch("https://api.github.com/users/ROM-01/repos")
 
             const media = mediaMap[data.name];
             let mediaElement = "";
+            let wipBadge = "";
 
-            if (media) {
+            if (!media) {
+                mediaElement = `<img src="/images/coming-soon.jpg" alt="Coming Soon for ${data.name}">`;
+            } else {
                 if (media.type === "image") {
                     mediaElement = `<img src="${media.src}" alt="${media.alt || data.name}">`;
                 } else if (media.type === "video") {
                     mediaElement = `
-        <video controls muted playsinline style="max-width: 100%; height: auto;">
-            <source src="${media.src}" type="video/mp4">
-            <source src="${media.src}" type="video/quicktime">
-            Your browser does not support the video tag.
-        </video>`;
+                    <video controls muted playsinline style="max-width: 100%; height: auto;">
+                        <source src="${media.src}" type="video/mp4">
+                        <source src="${media.src}" type="video/quicktime">
+                        Your browser does not support the video tag.
+                    </video>`;
+                } else if (media.type === "iframe") {
+                    mediaElement = `
+                    <iframe src="${media.src}?controls=0&modestbranding=1&rel=0&showinfo=0"
+                            style="width: 50vw; height:30vw;" 
+                            frameborder="0" 
+                            allowfullscreen></iframe>`;
+                } else if (media.type === "none") {
+                    mediaElement = `<img src="/images/coming-soon.jpg" alt="${media.alt || data.name}">`;
+                }
+
+                if (media.status) {
+                    wipBadge = `<div class="wip-badge">${media.status}</div>`;
                 }
             }
+
             slide.innerHTML = `
-    <h3>${data.name}</h3>
-    ${mediaElement}
-    <p>${data.description || "No description available."}</p>
-    <a href="${data.html_url}" target="_blank">View on GitHub</a>`; track.appendChild(slide);
+                <h3>${data.name}</h3>
+                ${mediaElement}<br><br>Status: ${wipBadge || "N/A"}
+                <p>Description: <br> ${data.description || "No description available."}</p>
+                <br>
+                <a href="${data.html_url}" target="_blank">View on GitHub</a>
+            `;
+
+            track.appendChild(slide);
         });
 
         // Custom project
@@ -596,11 +779,12 @@ fetch("https://api.github.com/users/ROM-01/repos")
         custom.classList.add("carousel-slide");
         custom.innerHTML = `
     <h3>Horror Game</h3>
-    <video controls muted playsinline style="max-width: 100%; height: auto;">
-    <source src="/videos/horror-game.mov">
-    Your browser does not support the video tag.
-    </video>
-    <p>Game built in Roblox Studio.</p>
+    <iframe src="https://www.youtube.com/embed/uG9qZlexpaY"?controls=0&modestbranding=1&rel=0&showinfo=0 style="width: 50vw; height:30vw;" frameborder="0" allowfullscreen>
+    </iframe>
+    <p>Status: <br>Hiatus</p>
+    <p>Description: <br>Game built in Roblox Studio. Everything seen in this video was built by me except the game menu background image. <br> What's the story about? I'm not telling.</p>
+    
+    <br>
     <p>Code not available.</p>`;
         track.appendChild(custom);
 
@@ -644,17 +828,13 @@ let isDialogReady = false;
 let currentDialogText = "";
 let dia_audio = new Audio('/audio/medium-text-blip-14855.mp3');
 
-
-
-// Set default bell image
-bell.src = "/icons/bell (2).png";
-
 // Dialog text mapping
 const dialogData = {
-    "#exp-item1": "This is a message about item 1.",
-    "#exp-item2": "You clicked on item 2. It’s very interesting!",
-    "#exp-item3": "Here’s something cool about item 3.",
-    "#exp-item4": "Here’s something cool about item 4.",
+    "#exp-item1": "Gained more backend knowledge with the best support from my manager.  Although... I'm unsure about the cloud development expertise, would use when necessary.",
+    "#exp-item2": `My first legit tech job. I overwhelmed and burnt myself out...but despite that, I'll improve and learn from my mistakes.  On the other hand, mobile development seems promising!`,
+    "#exp-item3": "Work Shift: 8a-8p, Mon-Fri, 4 months.  Include 1 hour commute to and from the city. Talk about dedication, many sleepless days.  What I appreciate the most from this program was the opening to a new world I never knew existed, the city life.",
+    "#exp-item4": "Pain... that gave enough drive for change.",
+    ".form-btn": "Careful what you say, who's IP address is at risk here~ 😜 (joking...maybe)"
 };
 
 // Set up triggers
@@ -666,18 +846,18 @@ Object.keys(dialogData).forEach(selector => {
             currentDialogText = dialogData[selector];
             isDialogReady = true;
             bell.src = "/icons/bell-notif.png";
-            bell.style.cursor = "pointer";
+            bell.style.cursor = "url('/icons/heart-click.png') 24 24, pointer";
         });
     }
 });
 
-// Bell click: only works if a trigger has been clicked
+// Back to Default
 bell.addEventListener("click", () => {
     if (!isDialogReady) return;
 
     dialog.style.display = "flex";
     bell.src = "/icons/bell (2).png";
-    bell.style.cursor = "default";
+    bell.style.cursor = "url('/icons/heart.png') 24 24, pointer";
     isDialogReady = false;
 
     startTyping(currentDialogText);

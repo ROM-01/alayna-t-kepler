@@ -9,6 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap"
         rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,10 +23,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/styles/index.css">
+
+    <link rel="icon" href="/fav-heart-icon.png">
     <title>Alayna Taylor</title>
 </head>
 
 <body>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+
     <div class="hidden-cover">
         <img class="eyes" src="/images/eyes.jpeg" alt="">
     </div>
@@ -32,7 +59,7 @@
         <div class="nav-element"><a href="#skills">Skills</a></div>
         <div class="nav-element"><a href="#about">About</a></div>
         <div class="nav-element"><a href="#projects">Projects</a></div>
-        <div class="nav-element"><a href="#connect">Connect</a></div>
+        <div class="nav-element"><a href="#connect">Contact</a></div>
     </nav>
 
     <div class="side-menu-container">
@@ -51,15 +78,19 @@
                 </div>
                 <audio id="audio" autoplay controls></audio>
                 <div>
-                    <button id="music-prev-btn">⏮️ Prev</button>
-                    <button id="music-next-btn">⏭️ Next</button>
+                    <button id="music-prev-btn"> <span>⏮️ Prev</span></button>
+                    <button id="music-next-btn"><span>Next ⏭️</span></button>
                 </div>
             </div>
 
             <div class="credit-menu">
-                <div class="credit-title">To Credit</div>
+                <div class="game-title">
+                    <a href="/game-menu.html">To Game Menu</a>
+                </div>
 
-                <div class="game-title">To Game Menu</div>
+                <div class="credit-title">
+                    <a href="/templates/credits.html">To Credit</a>
+                </div>
             </div>
         </div>
     </div>
@@ -74,12 +105,12 @@
             <h1 class="title-page" data-text="Alayna Taylor">Alayna Taylor</h1>
 
             <div class="dev-quote-wrapper">
-                <p class="dev-quote">Creativity and Innovation at it's finest.</p>
+                <p class="dev-quote">"Be yourself!" - Me</p>
             </div>
         </div>
     </div>
 
-    <section id="about">
+    <section id="about" class="section">
         <h2>Introduction</h2>
 
         <div class="about-container">
@@ -89,21 +120,24 @@
                 <h3 class="card-title1">About</h3>
                 <p class="about-bio1">🌺I'm a <span class="about-span">versatile developer</span> with experience in
                     game, mobile, web, and cloud
-                    development. I thrive on
-                    exploring
+                    development. 
+                    <br>
+                    <br>
+                    I thrive on exploring
                     different technologies and creating innovative solutions.
                     I can work on both front-end and back-end development, while blending creativity with every
                     endeavor.
+                    <br>
+                    <br>
                     With a passion for problem-solving and continuous learning, I’m always looking for new ways to
                     expand my
                     skills and take
                     on exciting challenges.🌺
                     <br>
                     <br>
-                    🌟Outside of tech, I enjoy creative pursuits such as in traditional and digital art, content
-                    creation,
-                    philosophy/psychology topics, or diving into any project that sparks my curiosity!🌟
                 </p>
+
+                <img src="/images/cat-computer.gif" alt="">
             </div>
 
             <div class="about-right-side">
@@ -111,35 +145,45 @@
                     <div class="bg-card2"></div>
                     <div class="about-overlay2"></div>
                     <h3 class="card-title2">Employment Status</h3>
-                    <p class="about-bio2">Employed but still looking.</p>
+                    <p class="about-bio2">Currently employed, but open to new opportunities.</p>
                 </div>
 
                 <div class="card-about3">
                     <div class="bg-card3"></div>
                     <div class="about-overlay3"></div>
-                    <h3 class="card-title3">Focus</h3>
-                    <p class="about-bio3">I build software that performs your daily tasks, enhancing your productivity.
-                        <br>
-                        <br>
-                        I write scripts that automate repetitive work and save you time.
-                        <br>
-                        <br>
-                        I improve customer satisfaction with fast, friendly, and reliable service.
-                        <br>
-                        <br>
-                        I support your team with strong communication, problem-solving, and a willingness to learn.
-                        <br>
-                        <br>
-                        I troubleshoot and resolve technical issues to keep your systems running smoothly.
-                        <br>
-                        <br>
-                        I bring creative thinking to improve workflows and make things more efficient.
+                    <h3 class="card-title3">Highlights</h3>
+                    <p class="about-bio3">
+
+                    <ul>   
+                        <li class="about-bio3-list">&nbsp
+                            I design and develop software that solves real problems.
+                        </li>
+
+                        <li class="about-bio3-list">&nbsp
+                            I write scripts that automate repetitive work that saves time.
+                        </li>
+                        <li class="about-bio3-list">&nbsp
+                            I improve customer satisfaction with fast, friendly, and reliable service.
+                        </li>
+
+                        <li class="about-bio3-list">&nbsp
+                            I support your team with strong communication, problem-solving, and a willingness to learn.
+                        </li>
+
+                        <li class="about-bio3-list">&nbsp
+                            I troubleshoot and resolve technical issues to keep every system running smoothly.
+                        </li>
+
+                        <li class="about-bio3-list">&nbsp
+                            I bring creative thinking to improve workflows and make things more efficient.
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience">
+    <section id="experience" class="section">
         <h2>Work Experience</h2>
         <div class="exp-container">
             <div class="exp-bg"></div>
@@ -163,14 +207,14 @@
 
                     <div class="accordion-item">
                         <div id="exp-item2" class="accordion-header"> Android App Developer</div>
-                        <div class="accordion-content">I was a part of the Customer Mobile App Developer team.
-                            This team builds features for customers at all phases of their travel journey, whether
+                        <div class="accordion-content">I was apart of the Customer Mobile App Developer team.
+                            My team was responsible for building features for customers at all phases of their travel journey, whether
                             shopping for
                             a flight, managing their reservation, checking in for a flight, watching a movie
                             onboard, tracking
                             their bags, etc.
-                            Here, I gained skills in using Android Studio and coding in the Kotlin programming
-                            language.</div>
+                            Here, I gained skills in using Android Studio, coding in the Kotlin programming
+                            language, and debugging/testing.</div>
                     </div>
 
 
@@ -178,33 +222,31 @@
                         <div id="exp-item3" class="accordion-header">Technical Analyst</div>
                         <div class="accordion-content">This was an educational experience for me to acquire business
                             and IT fundamentals.
-                            I gained expertise in MS O7ice such as in Excel, PowerPoint, and Word.
-                            On a project, I wrote custom HTML/CSS/JS for my online autobiography.
-                            Coordinated with other engineers to evaluate and improve software and hardware
+                            I gained expertise in MS Office such as in Excel, PowerPoint, and Word.
+                            On a portfolio project, I wrote custom HTML/CSS/JS.
+                            I was put on a team of five members which is why called ourselves team i5. <br><br>Here we created a product for United Airlines field agents so they can know which machines or devices have a good, caution, or bad status. My responsibility was to create the AR (augmented reality) for our application which was a new experience for me but I got it to work.
+
+                            I coordinated with other engineers to evaluate and improve software and hardware
                             interfaces.
                             Studied user requirements to gain a vital understanding of project initiatives and
-                            deadlines.
-                            I created an augmented reality program using the Unity engine to give to United
-                            Airlines.</div>
+                            deadlines.</div>
                     </div>
 
                     <div class="accordion-item">
                         <div id="exp-item4" class="accordion-header">Customer Service Deli Clerk</div>
                         <div class="accordion-content">Communicated effectively with customers to plan large or
                             specialized orders, provided customers
-                            with recommendations, and handled customer complaints. Collaborated with team to ensure
+                            with recommendations, and handled customer complaints. <br>Collaborated with team to ensure
                             tasks were completed on time with less hassle. Maintained clean, trash-free workspaces
                             to
                             maximize productivity and safety. Regulated shelves by stocking and organizing
-                            merchandize
+                            merchandise
                             daily, with a newer items to the back procedure.</div>
                     </div>
-
                 </div>
 
                 <div class="exp-side">
                     <div class="exp-side-overlay"></div>
-
                     <div class="skills-company-wrapper">
                         <div class="exp-company">Company:
                             <div class="exp-company-text">&nbspNone
@@ -229,7 +271,7 @@
                     </div>
 
                     <div class="exp-content-wrapper">
-                        <div class="exp-content">Content:
+                        <div class="exp-content">Content: &nbspNone
 
                         </div>
                     </div>
@@ -244,9 +286,9 @@
         </div>
     </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills-wrapper">
+    <section id="skills" class="section">
+        <h2>Tech Stack</h2>
+        <div class="skills-container">
             <div class="skills-overlay"></div>
             <div class="skills-bg"></div>
 
@@ -290,14 +332,14 @@
                             </div>
                         </div>
                         <div class="tab-btn-wrapper">
-                            <img class="tab-btn" src="/icons/right-arrow (1).png" alt="Toggle Filters">
+                            <img class="tab-btn-icon" src="/icons/left-arrow.png" alt="Toggle Filters">
                         </div>
                     </div>
 
                     <div>
                         <nav class="skills-nav-header">
                             <button id="lan" class="skills-nav-btn">Languages</button>
-                            <button id="frame" class="skills-nav-btn">Frameworks & Libraries</button>
+                            <button id="frame" class="skills-nav-btn">Frameworks Libraries</button>
                             <button id="tools" class="skills-nav-btn">Tools</button>
                             <button id="database" class="skills-nav-btn">Databases</button>
                             <button id="soft" class="skills-nav-btn">Soft Skills</button>
@@ -318,7 +360,7 @@
         </div>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="section">
         <h2>Personal Projects</h2>
         <div class="project-container">
             <div class="project-bg"></div>
@@ -362,8 +404,8 @@
         <img src="/icons/bell (2).png" alt="">
     </div>
 
-    <section id="connect">
-        <h2 class="con-title">Impressed? <br>Let's Connect!</h2>
+    <section id="connect" class="section">
+        <h2 class="con-title">Impressed? <br><br><br>Let's Connect!</h2>
         <div class="connect-container">
             <div class="connect-section">
                 <div class="connect-bg"></div>
@@ -372,23 +414,21 @@
                     <div class="socials-container">
                         <h3 class="social-title">Socials</h3>
                         <div class="socials">
-                            <div>
-                                <img class="icon" src="/images/linkedin.png" alt="">
-                                <a href="https://www.linkedin.com/in/just-getting-started/" target="_blank">LinkedIn</a>
+                            <div>    
+                                <a href="https://www.linkedin.com/in/just-getting-started/" target="_blank"><img class="icon" src="/images/linkedin.png" alt=""></a>
                             </div>
 
                             <div>
-                                <img class="icon" src="/images/github.png" alt="">
-                                <a href="https://github.com/ROM-01" target="_blank">GitHub</a>
+                                
+                                <a href="https://github.com/ROM-01" target="_blank"><img class="icon" src="/icons/github.jpg" alt=""></a>
                             </div>
 
                             <div>
-                                <img class="icon" src="/images/gmail.png" alt="">
-                                <a href="https://github.com/ROM-01" target="_blank">Gmail</a>
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=alaynaonetay@gmail.com" target="_blank"><img class="icon" src="/images/gmail.png" alt=""></a>
                             </div>
                         </div>
-                        <h3>Phone: +1 (708) 506 2319</h3>
-                        <h3>Text preferred</h3>
+                        <h3 class="social-number">+1 (708) 506 2319</h3>
+                        <h4 class="social-preference">Text preferred</h4>
                     </div>
                 </div>
 
@@ -413,7 +453,7 @@
                                 <textarea name="usersMessage" id="users-message" required maxlength="20"
                                     placeholder="Write your message here..."></textarea>
 
-                                <button class="form-btn" type="submit">Submit</button>
+                                <button class="form-btn" type="submit"> <span>Submit</span></button>
                             </form>
                         </div>
 
