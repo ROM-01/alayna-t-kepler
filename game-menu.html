@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/game-menu.css">
+    <link rel="icon" href="/fav-heart-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <title>Portfolio Game Menu</title>
+</head>
+<body>
+    <div class="overlay-bg"></div>
+
+    <div class="side-menu-container">
+        <div class="side-menu-btn">
+            <img class="side-menu-icon" src="/icons/left-arrow.png" alt="">
+        </div>
+        <div class="side-menu">
+    
+            <div class="music-menu">
+                <div class="music-title">Music Settings</div>
+                <div class="music-icon-container">
+                    <img class="music-icon" src="/icons/album.svg" alt="">
+                    <div id="player">
+                        <p id="now-playing">Now Playing: </p>
+                    </div>
+                </div>
+                <audio id="audio" autoplay controls></audio>
+                <div>
+                    <button id="music-prev-btn"> <span>⏮️ Prev</span></button>
+                    <button id="music-next-btn"><span>Next ⏭️</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="title">
+        <h1 class="my">My</h1>
+    <h1 class="portfolio">Portfolio</h1>
+</div>
+
+    <div class="btn-container">
+    <div class="start-btn">
+        <a href="/templates/index.html">Start</a>
+    </div>
+    <div class="credit-btn">
+        <a href="/templates/credits.html">Credits</a>
+    </div>
+    </div>
+    <script src="/js/game-menu.js"></script>
+</body>
+</html>
