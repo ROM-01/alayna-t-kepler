@@ -29,6 +29,7 @@ function loadSong() {
     if (localStorage.getItem("soundEnabled") === "true") {
         audio.play();
     };
+    audio.play()
 }
 loadSong()
 
