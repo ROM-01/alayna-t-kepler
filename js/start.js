@@ -214,30 +214,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".connect-container").appendChild(footer)
 })
 
-window.addEventListener("load", () => {
-    const overlay = document.getElementById("transition-overlay");
-    overlay.style.opacity = "0";
-    setTimeout(() => {
-        overlay.style.display = "none";
-    }, 1000);
-});
-
-const pageLinks = document.querySelectorAll("a");
-
-pageLinks.forEach(link => {
-    link.addEventListener("click", e => {
-        const href = link.getAttribute("href");
-        if (href && !href.startsWith("#")) {
-            e.preventDefault();
-            const overlay = document.getElementById("transition-overlay");
-            overlay.style.display = "block";
-            overlay.style.opacity = "1"; // Fade in
-            setTimeout(() => {
-                window.location.href = href;
-            }, 1000);
-        }
-    });
-});
 
 
 
