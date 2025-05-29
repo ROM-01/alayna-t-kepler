@@ -21,6 +21,7 @@ async function loadSong(index, shouldPlay = true) {
         audio.src = src;
         nowPlaying.textContent = `Now Playing: ${name}`;
     }
+    audio.play()
 
     if (shouldPlay && localStorage.getItem("soundEnabled") === "true") {
         try {
