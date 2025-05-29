@@ -1,0 +1,309 @@
+/* Connect */
+
+.connect-container {
+    position: relative;
+    font-family: "Jersey 20", sans-serif;
+    display: flex;
+    flex-direction: column;
+    border-left: 1vw solid #00f0ff;
+    border-right: 1vw solid rgb(255, 78, 231);
+    border-top: 1vw solid rgb(185, 109, 255);
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.connect-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 80px;
+    gap: 100px;
+}
+
+.connect-bg {
+    position: absolute;
+    background-image: url(/images/start/_\ \(9\).gif);
+    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: -10px;
+    background-color: #1a005b;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    opacity: 0.4;
+    border-radius: 10px;
+}
+
+.connect-overlay {
+    background-color: #0d0128;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -2;
+    border-radius: 10px;
+}
+
+.social-title {
+    margin-bottom: 50px;
+}
+
+.social-title,
+.leave-title {
+    background-color: #100020;
+    padding: 20px;
+}
+
+.icon {
+    height: 30px;
+    cursor: url('/icons/heart.png') 20 20, pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.icon:hover {
+    transform: scale(1.2) rotate(20deg);
+    filter: brightness(1.2);
+    border-radius: 5px;
+}
+
+.socials-container {
+    padding: 30px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+.socials-container,
+.message-container {
+    background-color: rgb(30, 0, 64);
+    border: 5px solid rgb(102, 177, 234);
+    border-radius: 20px;
+
+}
+
+.socials {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+}
+
+.social-preference {
+    margin-top: -1.2vw;
+}
+
+.social-number,
+.social-preference {
+    animation: glowPulse3 4s infinite ease-in-out;
+}
+
+/* Form */
+
+.message-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-container {
+    padding: 2vw 6vw;
+    margin-bottom: 60px;
+}
+
+.input {
+    padding: 0.5vw 2vw;
+    text-align: start;
+    text-align: center;
+    cursor: url('/icons/heart.png') 20 20;
+}
+
+#users-name,
+#users-email,
+#users-message {
+    color: #00f0ff;
+    border: 2px solid rgb(248, 154, 255);
+    border-radius: 3px;
+    background-color: #382049;
+}
+
+#users-name:hover,
+#users-email:hover,
+#users-message:hover,
+#users-name:focus,
+#users-email:focus,
+#users-message:focus {
+    border: none;
+    border-radius: 3px;
+    outline-color: #00f0ff;
+    outline-style: solid;
+    outline-width: 2px;
+    transition: outline 0.5s ease-in-out, border 0.5s ease-in-out;
+}
+
+.input,
+#users-message {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    cursor: url('/icons/heart.png') 20 20, crosshair;
+}
+
+#users-message {
+    padding: 2vw;
+    resize: vertical;
+
+}
+
+
+#users-name,
+#users-email,
+#users-message,
+.form-btn {
+    margin-bottom: 1vw;
+}
+
+.form-btn {
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    font-size: 1vw;
+    font-family: "Press Start 2P", system-ui;
+    text-align: center;
+    font-weight: bolder;
+    color: #fff;
+    border: 2px solid #00f0ff;
+    border-radius: 5px;
+    padding: 0.8em;
+    background: transparent;
+    transition: color 0.3s ease-in-out;
+}
+
+.form-btn::before {
+    content: "";
+    position: absolute;
+    background: #00f0ff;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    transition: left 0.3s, color 0.3s ease-in-out;
+}
+
+.form-btn:hover {
+    color: #000;
+}
+
+.form-btn:hover::before {
+    left: 0;
+}
+
+.form-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Messages */
+#messages {
+    display: block;
+}
+
+.messages-list {
+    list-style: none;
+    font-size: 0.5vw;
+    text-align: center;
+    white-space: normal;
+    word-wrap: break-word;
+    margin: auto;
+}
+
+.messages-list li::marker {
+    content: '🩵';
+}
+
+.messages-list button {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    font-weight: bolder;
+    font-family: "Press Start 2P", system-ui;
+    border: 2px solid #00f0ff;
+    border-radius: 5px;
+    padding: 0.8em;
+    background: transparent;
+    transition: color 0.3s ease-in-out;
+}
+
+.messages-list button::before {
+    content: "";
+    position: absolute;
+    background: #00f0ff;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    transition: left 0.3s, color 0.3s ease-in-out;
+}
+
+.messages-list button:hover {
+    color: #000;
+}
+
+.messages-list button:hover::before {
+    left: 0;
+    color: #000;
+}
+
+.messages-list span {
+    position: relative;
+    z-index: 1;
+}
+
+@media screen and (max-width: 600px) {
+
+    .message-form,
+    .messages-list {
+        font-size: 5vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-btn {
+        width: 15vw;
+        font-size: 2vw;
+    }
+
+    .socials-container {
+        padding: 20px;
+    }
+
+    .socials {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .connect-section {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@keyframes glowPulse2 {
+
+    0%,
+    100% {
+        color: #090022;
+        text-shadow: none;
+    }
+
+    50% {
+        color: #e1fdff;
+
+    }
+}

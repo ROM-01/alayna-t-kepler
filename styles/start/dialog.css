@@ -1,0 +1,99 @@
+/* Dialog */
+
+.bell-container img {
+    position: fixed;
+    width: 5vw;
+    bottom: 0;
+    right: 0;
+    padding: 1em;
+    z-index: 3;
+}
+
+#dialog {
+    display: none;
+}
+
+.dialog-container {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    width: 96vw;
+    bottom: 0;
+    text-shadow: 1px 1px 1px black;
+    background-color: #120137;
+    box-sizing: content-box;
+    border: 3px solid black;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 5px;
+    z-index: 5;
+}
+
+.dialog-img-wrapper {
+    padding: 1vw;
+    width: 12vw;
+    border-radius: 15px;
+}
+
+.dialog-img {
+    width: 12vw;
+    border-radius: 15px;
+}
+
+.dialog-textbox {
+    background-color: #120137;
+    width: 100%;
+}
+
+.dialog-textbox-top {
+    display: flex;
+    flex-direction: row;
+}
+
+.dialog-textbox-top h4 {
+    width: 20vw;
+    background-color: #39099b;
+    font-size: 2.5vw;
+    border-right: 3px solid black;
+    border-left: 3px solid black;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin: 0;
+    padding-top: 1vw;
+    padding-bottom: 0.5vw;
+}
+
+.dialog-textbox-top img {
+    width: 2vw;
+    background-color: #abafff;
+    border-left: 3px solid black;
+    cursor: url('/icons/heart-click.png') 20 20, pointer;
+    margin-left: auto;
+    padding-right: 2vw;
+    padding-left: 2vw;
+}
+
+.dialog-textbox-bottom {
+    height: 100%;
+    font-size: 2vw;
+    text-align: left;
+    background-color: #220051;
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    margin: 0;
+    padding-left: 1vw;
+    padding-top: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 1vw;
+}
+
+.dialog-textbox-bottom p {
+    background-color: #1d0133;
+    margin: 0;
+    border-radius: 10px;
+    padding-left: 2vw;
+    padding-top: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 3.5vw;
+}

@@ -1,0 +1,250 @@
+/* Experience */
+
+.exp-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4vw;
+    box-shadow: 1px 2px 20px #0674c3;
+    padding: 13vw 4vw 9vw 4vw;
+    z-index: 1;
+    border-radius: 20px;
+
+}
+
+.exp-row {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 8vw;
+}
+
+
+.exp-bg {
+    position: absolute;
+    background-image: url(/images/start/_\ \(11\).gif);
+    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: -150px;
+    background-color: #1a005b;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    opacity: 0.5;
+    border-radius: 20px;
+}
+
+.exp-overlay {
+    position: absolute;
+    background-color: #2a1137;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -2;
+    border-radius: 20px;
+}
+
+.exp-container::after,
+.exp-container::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: conic-gradient(from var(--angle), #110548, #065cc6, #0f0cb7, #047ace, rgb(24, 24, 91));
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -3;
+    padding: 3px;
+    border-radius: 20px;
+    animation: 3s spin linear infinite;
+}
+
+.exp-container::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+
+
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}
+
+.accordion {
+    width: 100vh;
+
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+    transition: transform 0.5s ease;
+}
+
+.accordion-item:hover {
+    transform: scale(1.1);
+}
+
+.accordion-header {
+    font-size: 2.5vw;
+    background-color: #0083d4;
+    padding: 10px;
+    cursor: url('/icons/heart-click.png') 20 20, pointer;
+    font-weight: bold;
+    text-shadow: 0px 0px 2px black;
+    color: white;
+    border: 5px inset rgb(4, 72, 155);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(37, 132, 180);
+}
+
+.accordion-content {
+    transition: max-height 0.6s ease;
+    font-size: 2vw;
+    padding: 10px;
+    overflow: hidden;
+    background-color: #0d0128;
+    color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    min-height: fit-content;
+    min-width: fit-content;
+    display: none;
+}
+
+
+.accordion-content.active {
+    display: block;
+    max-height: 1000px;
+}
+
+.exp-side {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    border: 3px solid #0674c3;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px #0674c3;
+    padding: 5vw;
+}
+
+@media screen and (max-width: 600px) {
+    .exp-row {
+        flex-wrap: wrap;
+    }
+
+    .exp-side {
+        margin: auto;
+    }
+}
+
+.exp-side-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #110548;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+
+.exp-company,
+.exp-skills,
+.exp-city,
+.exp-date {
+    margin-bottom: 4vw;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.exp-content-wrapper {
+    margin-top: 5px;
+    padding: 10px 0px;
+}
+
+.exp-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.exp-company {
+    flex-wrap: wrap;
+}
+
+.exp-skills {
+    flex-wrap: wrap;
+}
+
+
+.exp-company,
+.exp-skills,
+.exp-city,
+.exp-date,
+.exp-content-wrapper {
+    text-align: start;
+    font-size: 2.5vw;
+    font-weight: bold;
+}
+
+
+.resume-wrapper {
+    position: relative;
+    cursor: url('/icons/heart-click.png') 20 20, pointer;
+    font-size: 2vw;
+    animation-name: bounce;
+    animation-duration: 2s;
+    transform: translateY(0px);
+    animation-iteration-count: infinite;
+    margin-left: 85%;
+    margin-top: 80px;
+}
+
+.resume-pdf {
+    height: 5vw;
+    margin-top: -15%;
+}
+
+@keyframes bounce {
+    0% {
+        top: 0;
+        -webkit-animation-timing-function: ease-in;
+    }
+
+    30% {
+        top: 4vw;
+        -webkit-animation-timing-function: ease-in;
+    }
+
+    50% {
+        top: 6vw;
+        -webkit-animation-timing-function: ease-in;
+    }
+
+    70% {
+        top: 4vw;
+        -webkit-animation-timing-function: ease-out;
+    }
+
+    100% {
+        top: 0;
+        -webkit-animation-timing-function: ease-out;
+    }
+}

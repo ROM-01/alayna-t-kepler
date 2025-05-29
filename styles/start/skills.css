@@ -1,0 +1,272 @@
+/* Skills */
+.skills-container {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    overflow: hidden;
+    border: 3px solid black;
+    border-radius: 15px;
+    box-shadow: 2px 4px 20px #9463ff;
+}
+
+
+.skills-overlay {
+    position: absolute;
+    background-color: #0d0128;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -2;
+    border-radius: 10px;
+}
+
+.skills-bg {
+    position: absolute;
+    background-image: url(/images/start/_\ \(8\).gif);
+    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: -10px;
+    background-color: #1a005b;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    opacity: 0.4;
+    border-radius: 10px;
+}
+
+
+.skills-nav-container {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.skills-nav-header {
+    display: flex;
+    flex-direction: row;
+    margin-right: 1vw;
+    padding-top: 2.5vw;
+    padding-bottom: 3vw;
+}
+
+.skills-nav-btn {
+    position: relative;
+    border-radius: 5px;
+    border: 2px solid black;
+    height: 40px;
+    font-size: 2vw;
+    font-family: "Jersey 20", sans-serif;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    overflow: hidden;
+    cursor: url('/icons/heart-click.png') 20 20, pointer;
+    width: 100%;
+    padding: auto;
+    margin-right: 2vw;
+}
+
+.skills-nav-btn:hover {
+    color: white;
+    background-color: #43018a;
+    font-size: 2vw;
+    text-shadow: 1px 1px 0px black;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #01b7ea, 0 0 30px #04d5fe;
+    transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out, transform 0.4s ease-in-out, color 0.4s ease-in-out, text-shadow 0.4s ease-in-out;
+}
+
+@media screen and (min-width: 1000px) {
+    .skills-nav-btn {
+        padding: 2vw;
+    }
+}
+
+
+.skills-tab {
+    flex: 1 1 250px;
+    max-width: 80vw;
+    box-sizing: content-box;
+    background-color: #220051;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    opacity: 1;
+    overflow: hidden;
+    transition: width 1s ease, opacity 1s ease;
+}
+
+.active-skill-tab {
+    background-color: #02459d !important;
+    color: white !important;
+    text-shadow: 1px 1px 0px black;
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out, text-shadow 1s ease-in-out;
+}
+
+.tab-btn-wrapper {
+    background-color: #410b82;
+    height: 100%;
+    width: 15%;
+    display: flex;
+    border-right: 3px solid black;
+    cursor: url('/icons/heart-click.png') 20 20, pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2vw;
+}
+
+.tab-btn-wrapper.collapsed {
+    overflow: hidden;
+    transition: display 2s ease;
+    width: 3.5vw;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.tab-btn-wrapper.collapsed .skills-tab {
+    display: none;
+    transition: display 2s ease;
+}
+
+.tab-btn-icon {
+    width: 20px;
+    rotate: -180deg;
+    transition: transform 0.3s ease;
+}
+
+.tab-btn-icon.rotated {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.skills-nav-and-radio {
+    display: flex;
+    flex-direction: row;
+}
+
+.radio-column {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    font-size: 80%;
+    padding: 10px;
+    padding-right: 3vw;
+}
+
+.radio1,
+.radio2 {
+    max-width: 200px;
+    background-color: #100020;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+.skills-radio1,
+.skills-radio2 {
+    margin: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1rem;
+    min-width: 1rem;
+    height: 1rem;
+    border: 3px solid #9463ff;
+    border-radius: 50%;
+    transition: box-shadow 0.3s ease;
+    margin-right: 1.5vw;
+}
+
+.skills-radio1:checked,
+.skills-radio2:checked {
+    border: 3px solid #f97edf;
+    box-shadow: 0 0 5px #f97edf,
+        0 0 10px #f97edf,
+        0 0 20px #f97edf;
+}
+
+.skills-content-container {
+    width: 100%;
+    height: 400px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding-left: 7vw;
+    padding-right: 7vw;
+}
+
+.skills-content-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.skills-content-container::-webkit-scrollbar-track {
+    background: #1a005b;
+    border-radius: 10px;
+}
+
+.skills-content-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(#ca80ff, #23025a);
+    border-radius: 10px;
+    box-shadow: 0 0 10px #7803aa, 0 0 20px #0088ff;
+}
+
+.skills-content-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(#23025a, #ca80ff);
+}
+
+.grid {
+    font-size: 3vw;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(60px, 1fr));
+    grid-auto-rows: minmax(60px, auto);
+    gap: 20px;
+    row-gap: 7rem;
+    padding: 50px 10px;
+    justify-content: center;
+    align-content: start;
+    margin-bottom: 150px;
+}
+
+@media screen and (max-width: 600px) {
+
+    .radio1,
+    .radio2 {
+        font-size: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .grid {
+        grid-template-columns: repeat(2, minmax(80px, 1fr));
+        margin-bottom: 80px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .grid {
+        font-size: 2vw;
+    }
+}
+
+.skills-content-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.skills-icon {
+    width: 5vw;
+    margin: auto;
+}
