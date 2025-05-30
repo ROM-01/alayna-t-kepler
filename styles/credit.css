@@ -162,23 +162,47 @@ section {
 /* For Tablet View */
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     body {
-        font-size: 2rem;
+        font-size: 1.3rem;
+    }
+    body.dark-mode {
+        background-color: #111;
+        font-size: 1.3em;
+        font-family: dark, cursive;
+        color: white;   
     }
 
     #opening h1 {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     #opening h2 {
-        font-size: 1.2rem;
+        font-size: 1.6rem;
         margin-top: 1em;
+    }
+    #credit h3,
+    #favorites h3 {
+        font-size: 1.4rem;
+    }
+    .music-container h4 {
+        font-size: 1.3rem;
+    }
+    .nav-btns,
+    #music-credits,
+    .author-bio {
+        font-size: 1.2rem;
     }
 }
 
 /* For Mobile Portrait View */
 @media screen and (max-device-width: 767px) and (orientation: portrait) {
     body {
-        font-size: 0.6rem;
+        font-size: 0.5rem;
+    }
+    body.dark-mode {
+        background-color: #111;
+        font-size: 0.5em;
+        font-family: dark, cursive;
+        color: white;
     }
     .rose-bottom-container {
         margin-bottom: -8px;
@@ -193,7 +217,10 @@ section {
     #credit h3, #favorites h3 {
         font-size: 1rem;
     }
+    .music-container h4 {
+        font-size: 0.9rem;
+    }
     .nav-btns,#music-credits, .author-bio {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 }

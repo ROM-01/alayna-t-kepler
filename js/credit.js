@@ -82,8 +82,7 @@ toggleBtn.addEventListener("click", () => {
         changeSpan.style.color = "rgb(0, 224, 236)"
         changeSpan.style.fontSize = "1.5em"
         audio.src = "/audio/df97.mp3";
-        audio.volume = 0.5
-        rose2.src = "/images/credit/rose-upper-corner-left-dark.png";
+        audio.volume = 0.4
         toggleBtn.textContent = "Light Mode";
     } else {
         // LIGHT MODE SETTINGS
@@ -94,7 +93,6 @@ toggleBtn.addEventListener("click", () => {
         changeSpan.style.color = "rgb(236, 0, 110)"
         changeSpan.style.fontSize = "1em"
         audio.src = "/audio/8-bit-menu-slower.mp3";
-        rose2.src = "/images/credit/rose-lower-corner-right.png";
         toggleBtn.textContent = "Dark Mode";
     }
     audio.play();
