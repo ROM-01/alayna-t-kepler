@@ -87,7 +87,7 @@ body::after {
     position: relative;
     margin: auto;
     text-align: center;
-    padding-top: 2em;
+    padding-top: 1em;
     z-index: 1;
 }
 .portfolio {
@@ -124,7 +124,6 @@ a {
     display: flex;
     justify-content: center;
     align-content: center;
-    margin-top: 3em;
 }
 
 #play-audio {
@@ -132,15 +131,22 @@ a {
     font-size: 1rem;
     cursor: url('/icons/heart-game-menu-click.png') 20 20, pointer;
     animation: tiltBounce 2s ease-in-out infinite;
+    margin-top: 4em;
     z-index: 1;
 }
 
 /* For Tablet View */
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     .my {
-        padding-top: 3em;
+        padding-top: 2.5em;
     }
-
+    .title {
+        padding: 5vw;
+    }
+    .btn-container {
+        font-size: 2.5rem;
+        margin-top: 5.5em;
+    }
 }
 
 /* For Mobile Portrait View */
@@ -148,8 +154,16 @@ a {
     .my {
         padding-top: 3em;
     }
+    .title {
+        padding: 5vw;
+    }
     .btn-container {
-        margin-top: 5em;
+        margin-top: 7em;
+        font-size: 1.3rem;
+        padding: 5vw;
+    }
+    #play-audio {
+        font-size: 0.6rem;
     }
 }
 
