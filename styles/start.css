@@ -149,6 +149,8 @@ a:active {
     position: relative;
     color: transparent;
     -webkit-text-stroke: 1px #00f0ff;
+    transform: translateZ(0);
+    will-change: transform;
     transition: all 0.3s ease;
     width: 100%;
     height: 40px;

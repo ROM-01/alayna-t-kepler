@@ -15,28 +15,19 @@ let currentIndex = 0;
 audio.volume = 0.3;
 
 // Load and optionally play a song
-async function loadSong(index, shouldPlay = true) {
-    const { src, name } = playlist[index];
-    if (audio.src !== location.origin + src) {
-        audio.src = src;
-        nowPlaying.textContent = `Now Playing: ${name}`;
-    }
-    audio.play()
-
-    if (shouldPlay && localStorage.getItem("soundEnabled") === "true") {
-        try {
-            await audio.play();
-        } catch (err) {
-            console.warn("Playback interrupted:", err.message);
-        }
-    }
+function loadSong(index) {
+    audio.src = playlist[index].src;
+    nowPlaying.textContent = "Now Playing: " + playlist[index].name;
+    if (localStorage.getItem("soundEnabled") === "true") {
+        audio.play();
+    };
 }
 
 // DOMContentLoaded init
 window.addEventListener("DOMContentLoaded", () => {
     sideMenuBtn.classList.add("collapsed");
     sideMenu.style.display = "none";
-    loadSong(currentIndex, false); // preload first song
+    loadSong(currentIndex); // preload first song
 });
 
 // Side menu toggle
@@ -57,8 +48,18 @@ document.addEventListener("click", e => {
     }
 });
 
-// Autoplay next on end
+// Autoplay next song when current ends
 audio.addEventListener("ended", () => {
     currentIndex = (currentIndex + 1) % playlist.length;
     loadSong(currentIndex);
+});
+
+const startLink = document.querySelectorAll(".start-link");
+const newScreenAudio = new Audio("/audio/game-start-6104.mp3");
+
+startLink.forEach(link => {
+    link.addEventListener("click", () => {
+        newScreenAudio.currentTime = 0;
+        newScreenAudio.play().catch(() => { });
+    });
 });

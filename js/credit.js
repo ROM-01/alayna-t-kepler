@@ -45,6 +45,26 @@ document.addEventListener('click', () => {
     })
 })
 
+// Play audio ONLY for Start and Credits
+const newScreenAudio = new Audio("/audio/game-start-6104.mp3");
+const startLink = document.getElementById("start-link");
+const creditsLink = document.getElementById("credits-link");
+let isPlaying = false;
+
+[startLink, creditsLink].forEach(link => {
+    link.addEventListener("click", () => {
+        if (isPlaying) return;
+
+        isPlaying = true;
+        newScreenAudio.currentTime = 0;
+        newScreenAudio.play().catch(() => { });
+
+        newScreenAudio.onended = () => {
+            isPlaying = false;
+        };
+    });
+});
+
 const rose1 = document.getElementById("rose1")
 const rose2 = document.getElementById("rose2")
 const toggleBtn = document.querySelector(".toggle-btn")
