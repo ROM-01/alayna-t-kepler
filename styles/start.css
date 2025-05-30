@@ -47,18 +47,6 @@ body::-webkit-scrollbar-thumb:hover {
     transition: opacity 2s ease;
 }
 
-
-.square {
-    height: 14px;
-    width: 14px;
-    background-color: black;
-    position: fixed;
-    top: 0;
-    left: 0px;
-    pointer-events: none;
-    z-index: 99999999;
-}
-
 a,
 button,
 input[type="radio"],
@@ -205,9 +193,9 @@ a:active {
     z-index: 1;
 }
 
-.landing-bg {
+.landing-bg{
     position: absolute;
-    background-image: url(/images/start/girl.gif);
+    background-image: url(/videos/_1-ezgif.com-video-to-webp-converter.webp);
     background-repeat: repeat;
     background-size: cover;
     background-position: 0px 3vw;

@@ -87,7 +87,7 @@ body::after {
     position: relative;
     margin: auto;
     text-align: center;
-    padding-top: 10vw;
+    padding-top: 8vw;
     z-index: 1;
 }
 .portfolio {

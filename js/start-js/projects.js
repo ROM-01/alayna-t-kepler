@@ -73,11 +73,24 @@ fetch("https://api.github.com/users/ROM-01/repos")
                         Your browser does not support the video tag.
                     </video>`;
                 } else if (media.type === "iframe") {
+                    const videoId = new URL(media.src).pathname.split("/").pop();
+                    const previewImg = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
                     mediaElement = `
-                    <iframe src="${media.src}?controls=0&modestbranding=1&rel=0&showinfo=0"
-                            style="width: 100%;height: auto;aspect-ratio: 16 / 9;
-                            frameborder="0" 
-                            allowfullscreen></iframe>`;
+                    <div class="youtube-facade" data-video-id="${videoId}" style="position: relative; cursor: pointer;">
+                        <img src="${previewImg}" alt="Video preview for ${data.name}" style="width: 100%; aspect-ratio: 16/9;">
+                        <div class="play-button" style="
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 60px;
+                            height: 60px;
+                            background: rgba(0, 0, 0, 0.7) url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMuMC9zdmciPjxwYXRoIGQ9Ik0yNC4xMzQ5IDExLjg2NTNDMjQuMTM0OSAxMC44Mjk0IDIyLjk3MTYgMTAuMTc4NiAyMi4xMDUzIDEwLjg4ODdMMTUuOTk0OSAxNS43ODg3QzE1LjE3MzYgMTYuNDY3NSAxNS4xNzM2IDE3LjUzMjUgMTUuOTk0OSAxOC4yMTEzTDIyLjEwNTMgMjMuMTEzMkMyMi45NzE2IDIzLjgyMzMgMjQuMTM0OSAyMy4xNzI1IDI0LjEzNDkgMjIuMTM2N1YxMS44NjUzWiIgZmlsbD0id2hpdGUiLz48L3N2Zz4=') no-repeat center;
+                            background-size: 60%;
+                            border-radius: 50%;
+                        "></div>
+                    </div>`;                
                 } else {
                     mediaElement = `<img src="/images/start/start-projects/coming-soon.jpg" alt="${media.alt || data.name}">`;
                 }
@@ -101,18 +114,37 @@ fetch("https://api.github.com/users/ROM-01/repos")
         // Custom project
         const custom = document.createElement("div");
         custom.classList.add("carousel-slide");
+
+        const horrorVideoSrc = "https://www.youtube.com/embed/uG9qZlexpaY";
+        const videoId = new URL(horrorVideoSrc).pathname.split("/").pop();
+        const previewImg = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+        const mediaElement = `
+    <div class="youtube-facade" data-video-id="${videoId}" style="position: relative; cursor: pointer;">
+        <img src="${previewImg}" alt="Video preview for Horror Game" style="width: 100%; aspect-ratio: 16/9;">
+        <div class="play-button" style="
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.7) url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMuMC9zdmciPjxwYXRoIGQ9Ik0yNC4xMzQ5IDExLjg2NTNDMjQuMTM0OSAxMC44Mjk0IDIyLjk3MTYgMTAuMTc4NiAyMi4xMDUzIDEwLjg4ODdMMTUuOTk0OSAxNS43ODg3QzE1LjE3MzYgMTYuNDY3NSAxNS4xNzM2IDE3LjUzMjUgMTUuOTk0OSAxOC4yMTEzTDIyLjEwNTMgMjMuMTEzMkMyMi45NzE2IDIzLjgyMzMgMjQuMTM0OSAyMy4xNzI1IDI0LjEzNDkgMjIuMTM2N1YxMS44NjUzWiIgZmlsbD0id2hpdGUiLz48L3N2Zz4=') no-repeat center;
+            background-size: 60%;
+            border-radius: 50%;
+        "></div>
+    </div>`;
+
         custom.innerHTML = `
     <h3>Horror Game</h3>
-    <iframe src="https://www.youtube.com/embed/uG9qZlexpaY?controls=0&modestbranding=1&rel=0&showinfo=0" style="width: 100%;
-height: auto;
-aspect-ratio: 16 / 9;" frameborder="0" allowfullscreen>
-    </iframe>
+    ${mediaElement}
     <p>Status: <br>Hiatus</p>
     <p>Description: <br>Game built in Roblox Studio. Everything seen in this video was built by me except the game menu background image. <br> What's the story about? I'm not telling.</p>
-    
     <br>
     <p>Code not available.</p>`;
+
         track.appendChild(custom);
+
 
         setupCarousel();
     }).catch(error => {
@@ -146,4 +178,18 @@ function setupCarousel() {
 
     update();
 }
+
+    document.addEventListener("click", (e) => {
+        const target = e.target.closest(".youtube-facade");
+        if (!target) return;
+
+        const videoId = target.getAttribute("data-video-id");
+        const iframe = document.createElement("iframe");
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1&modestbranding=1&rel=0`;
+        iframe.style = "width: 100%; aspect-ratio: 16 / 9;";
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute("allowfullscreen", "");
+
+        target.replaceWith(iframe);
+    });
 })
