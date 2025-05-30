@@ -156,7 +156,8 @@ a {
         padding-top: 5em;
     }
     .title {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
+        padding: 10%;
     }
     .btn-container {
         margin-top: 5em;
