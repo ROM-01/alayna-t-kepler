@@ -65,20 +65,22 @@
 }
 
 .dialog-textbox-top img {
-    width: 2vw;
-    background-color: #abafff;
-    border-left: 3px solid black;
+    width: 2em;
+    height: 2em;
+    background-color: #39099b;
     cursor: url('/icons/heart-click.png') 20 20, pointer;
     margin-left: auto;
     padding-right: 2vw;
     padding-left: 2vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
 }
 
 .dialog-textbox-bottom {
     height: 100%;
     font-size: 2vw;
     text-align: left;
-    background-color: #220051;
+    background-color: #260143;
     border-top: 3px solid black;
     border-left: 3px solid black;
     margin: 0;
@@ -89,8 +91,9 @@
 }
 
 .dialog-textbox-bottom p {
-    background-color: #1d0133;
+    background-color: #39099b;
     margin: 0;
+    border: 0.3vw solid black;
     border-radius: 10px;
     padding-left: 2vw;
     padding-top: 2vw;

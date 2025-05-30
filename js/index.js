@@ -12,16 +12,35 @@ document.addEventListener('click', () => {
 
 const button = document.getElementById("play-audio");
 const music = document.getElementById("bg-music");
-
+music.volume = 0.5
 
 document.addEventListener("DOMContentLoaded", () => {
 button.addEventListener("click", () => {
     localStorage.setItem("soundEnabled", "true");
-    music.volume = 0.9
     music.play().catch(error => {
         console.error("Playback failed:", error);
     });
 })
+
+// Play audio ONLY for Start and Credits
+const newScreenAudio = new Audio("/audio/game-start-6104.mp3");
+const startLink = document.getElementById("start-link");
+const creditsLink = document.getElementById("credits-link");
+let isPlaying = false;
+
+[startLink, creditsLink].forEach(link => {
+    link.addEventListener("click", () => {
+        if (isPlaying) return;
+
+        isPlaying = true;
+        newScreenAudio.currentTime = 0;
+        newScreenAudio.play().catch(() => { });
+
+        newScreenAudio.onended = () => {
+            isPlaying = false;
+        };
+    });
+});
 
 
 window.addEventListener("load", () => {
