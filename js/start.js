@@ -16,9 +16,9 @@ const nowPlaying = document.getElementById("now-playing");
 
 // Music playlist
 const playlist = [
-    { name: "Title Theme", src: "/audio/xDeviruchi - Title Theme .wav" },
-    { name: "Prepare for Battle!", src: "/audio/xDeviruchi - Prepare for Battle! .wav" },
-    { name: "Decisive Battle", src: "/audio/xDeviruchi - Decisive Battle.wav" },
+    { name: "Title Theme", src: "/audio/xDeviruchi-TitleTheme.wav" },
+    { name: "Prepare for Battle!", src: "/audio/xDeviruchi-PrepareforBattle!.wav" },
+    { name: "Decisive Battle", src: "/audio/xDeviruchi-DecisiveBattle.wav" },
 ];
 
 let currentIndex = 0;
