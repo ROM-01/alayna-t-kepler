@@ -612,6 +612,34 @@ footer {
     padding-bottom: 1vw;
 }
 
+/* For Tablet View */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .square { 
+        width: 0px;
+        height: 0px;
+        background-color: none;
+        position: none;
+        top: none;
+        left: none;
+        pointer-events: none;
+        z-index: none;
+    }
+}
+
+/* For Mobile Portrait View */
+@media screen and (max-device-width: 767px) and (orientation: portrait) {
+    .square {
+        width: 0px;
+        height: 0px;
+        background-color: none;
+        position: none;
+        top: none;
+        left: none;
+        pointer-events: none;
+        z-index: none;
+    }
+}
+
 @keyframes shoot-left {
     0% {
         transform: translateX(0) translateY(0) scale(1);
