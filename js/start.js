@@ -75,68 +75,6 @@ startLink.forEach(link => {
 });
 
 
-// Mouse Trail
-const coords = { x: 0, y: 0 };
-const squares = document.querySelectorAll(".square");
-
-const colors = [
-    "#f794e5",
-    "#f794e5",
-    "#e48ef4",
-    "#d1b3ff",
-    "#d37bf7",
-    "#b3a1ff",
-    "#a398ff",
-    "#938eff",
-    "#8385ff",
-    "#737bff",
-    "#6381ff",
-    "#5397ff",
-    "#43adff",
-    "#33c3ff",
-    "#23d9ff",
-    "#13efff",
-    "#0fffff",
-    "#1fffe5",
-    "#3fffcc",
-    "#5fffb3",
-    "#7fff99"
-];
-
-squares.forEach(function (square, index) {
-    square.x = 0;
-    square.y = 0;
-    square.style.backgroundColor = colors[index % colors.length];
-});
-
-window.addEventListener("mousemove", function (e) {
-    coords.x = e.clientX;
-    coords.y = e.clientY;
-
-});
-
-function animateSquares() {
-
-    let x = coords.x;
-    let y = coords.y;
-
-    squares.forEach(function (square, index) {
-        square.style.left = x - 12 + "px";
-        square.style.top = y - 12 + "px";
-
-        square.style.scale = (squares.length - index) / squares.length;
-
-        square.x = x;
-        square.y = y;
-
-        const nextSquare = squares[index + 1] || squares[0];
-        x += (nextSquare.x - x) * 0.3;
-        y += (nextSquare.y - y) * 0.3;
-    });
-    requestAnimationFrame(animateSquares);
-}
-animateSquares();
-
 
 //PFP Stars Animation
 const container = document.querySelector('.pfp-wrapper');
