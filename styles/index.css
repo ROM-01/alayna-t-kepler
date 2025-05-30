@@ -78,7 +78,7 @@ body::after {
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    font-size: clamp(1rem, 5vw, 3rem);
+    font-size: clamp(1rem, 5vw, 2.5rem);
     text-shadow: 0.1rem 0.3em 0.1rem pink;
     animation: tiltBounce2 2s ease-in-out infinite;
 }
@@ -87,7 +87,7 @@ body::after {
     position: relative;
     margin: auto;
     text-align: center;
-    padding-top: 1em;
+    padding-top: 2em;
     z-index: 1;
 }
 .portfolio {
@@ -111,7 +111,7 @@ a {
     gap: 1em;
     color: white;
     font-size: 2em;
-    margin-top: 8em;
+    margin-top: 6em;
     z-index: 1;
 }
 
