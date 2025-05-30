@@ -153,10 +153,10 @@ a {
 /* For Mobile Portrait View */
 @media screen and (max-device-width: 767px) and (orientation: portrait) {
     .my {
-        padding-top: 4em;
+        padding-top: 5em;
     }
     .title {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
     .btn-container {
         margin-top: 5em;
