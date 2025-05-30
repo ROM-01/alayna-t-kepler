@@ -73,10 +73,9 @@ accordionHeaders.forEach((header) => {
 
             const image = document.createElement("img")
             image.src = "/images/start/work-setup.jpeg"
-            image.style.width = "60%"
+            image.style.width = "24vw"
             image.style.height = "60%"
             image.style.borderRadius = "10px"
-            image.loading = "lazy";
             expContent.innerHTML = "Content: ";
             expContent.append(image)
         } else if (header.id === "exp-item3") {
