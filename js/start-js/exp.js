@@ -11,14 +11,19 @@ const resume = document.querySelector(".resume-pdf");
 
 function clearSideContent() {
     const existingVideo = expContent.querySelector("video");
+    const existingImage = expContent.querySelector("image")
     if (existingVideo) {
         existingVideo.remove();
+    }
+    if (existingImage) {
+        existingImage.remove()
     }
 
     expCompany.innerHTML = "&nbspNone"
     expSkills.innerHTML = "&nbspNone"
     expCity.innerHTML = "&nbspNone"
     expDate.innerHTML = "&nbspNone"
+    expContent.innerHTML = "Content:&nbspNone"
 }
 
 
@@ -51,6 +56,7 @@ accordionHeaders.forEach((header) => {
             if (existingVideo) {
                 existingVideo.remove();
             }
+            
             expCompany.innerHTML = "&nbspUnited Airlines"
             expSkills.innerHTML = "&nbspAWS,&nbspJava,&nbspSpringboot, Docker, Datadog"
             expCity.innerHTML = "&nbspChicago, IL"
@@ -60,36 +66,47 @@ accordionHeaders.forEach((header) => {
             if (existingVideo) {
                 existingVideo.remove();
             }
-
             expCompany.innerHTML = "&nbspUnited Airlines"
             expSkills.innerHTML = "&nbspKotlin, Android Studio,&nbspJira"
             expCity.innerHTML = "&nbspChicago, IL"
             expDate.innerHTML = "&nbsp05/2023-01/2024"
+
+            const image = document.createElement("img")
+            image.src = "/images/start/work-setup.jpeg"
+            image.style.width = "60%"
+            image.style.height = "60%"
+            image.style.borderRadius = "10px"
+            image.loading = "lazy";
+            expContent.innerHTML = "Content: ";
+            expContent.append(image)
         } else if (header.id === "exp-item3") {
             const existingVideo = expContent.querySelector("video")
             if (existingVideo) {
                 existingVideo.remove();
             }
-
             expCompany.innerHTML = "&nbspi.c.stars"
             expSkills.innerHTML = "&nbspHTML/CSS/JS, Unity, C#, AR, SQL, MongoDB"
             expCity.innerHTML = "&nbspChicago, IL"
             expDate.innerHTML = "&nbsp01/2023-05/2023"
-            const video = document.createElement("video")
-            const source = document.createElement("source")
-            source.setAttribute("src", "/videos/AR.mp4")
-            video.append(source)
-            video.setAttribute("autoplay", "")
-            video.setAttribute("controls", "")
-            video.style.width = "90%"
-            video.style.maxHeight = "400px"
-            expContent.innerHTML = "Content: "
-            expContent.append(video)
+            const video = document.createElement("video");
+            const source = document.createElement("source");
+            source.setAttribute("src", "/videos/AR.mp4");
+            source.setAttribute("type", "video/mp4");
+            video.append(source);
+            video.setAttribute("autoplay", "");
+            video.setAttribute("controls", "");
+            video.setAttribute("muted", "");
+            video.setAttribute("playsinline", "");
+            video.style.width = "90%";
+            video.style.maxHeight = "400px";
+            expContent.innerHTML = "Content: ";
+            expContent.append(video);
         } else if (header.id === "exp-item4") {
             const existingVideo = expContent.querySelector("video")
             if (existingVideo) {
                 existingVideo.remove();
             }
+
             expCompany.innerHTML = "&nbspWalmart"
             expSkills.innerHTML = "&nbspTeamwork, Detail Attention, Time-Management, Loyalty, Customer Service"
             expCity.innerHTML = "&nbspChicago, IL"
