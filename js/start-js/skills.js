@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
     function filterGrid() {
+        const gridItems = document.querySelectorAll("[data-level]"); // moved inside the function
         gridItems.forEach(item => {
             const level = item.dataset.level;
             const type = item.dataset.type;

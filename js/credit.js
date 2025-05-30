@@ -82,6 +82,7 @@ toggleBtn.addEventListener("click", () => {
         changeSpan.style.color = "rgb(0, 224, 236)"
         changeSpan.style.fontSize = "1.5em"
         audio.src = "/audio/df97.mp3";
+        audio.volume = 0.5
         rose2.src = "/images/credit/rose-upper-corner-left-dark.png";
         toggleBtn.textContent = "Light Mode";
     } else {
