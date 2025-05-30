@@ -142,7 +142,7 @@ a {
     }
     .title {
         font-size: 2rem;
-        padding: 5vw;
+        padding: 2vw;
     }
     .btn-container {
         font-size: 2.5rem;
@@ -156,12 +156,11 @@ a {
         padding-top: 5em;
     }
     .title {
-        font-size: 0.8rem;
-        padding: 10%;
+        font-size: 0.9rem;
     }
     .btn-container {
         margin-top: 5em;
-        font-size: 1.3rem;
+        font-size: 1rem;
         padding: 5vw;
     }
     #play-audio {
