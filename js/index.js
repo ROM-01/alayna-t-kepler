@@ -10,6 +10,8 @@ document.addEventListener('click', () => {
     })
 })
 
+
+
 const button = document.getElementById("play-audio");
 const music = document.getElementById("bg-music");
 music.volume = 0.5
