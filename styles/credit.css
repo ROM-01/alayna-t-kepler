@@ -176,20 +176,20 @@ section {
     }
 
     #opening h2 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         margin-top: 1em;
     }
     #credit h3,
     #favorites h3 {
-        font-size: 1.4rem;
+        font-size: 1.7rem;
     }
     .music-container h4 {
-        font-size: 1.3rem;
+        font-size: 1.6rem;
     }
     .nav-btns,
     #music-credits,
     .author-bio {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -215,12 +215,12 @@ section {
         margin-top: 1em;
     }
     #credit h3, #favorites h3 {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
     .music-container h4 {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
     .nav-btns,#music-credits, .author-bio {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
     }
 }
