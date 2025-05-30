@@ -146,20 +146,20 @@ a {
     }
     .btn-container {
         font-size: 2.5rem;
-        margin-top: 5.5em;
+        margin-top: 8em;
     }
 }
 
 /* For Mobile Portrait View */
 @media screen and (max-device-width: 767px) and (orientation: portrait) {
     .my {
-        padding-top: 5em;
+        padding-top: 3em;
     }
     .title {
         font-size: 0.9rem;
     }
     .btn-container {
-        margin-top: 5em;
+        margin-top: 10em;
         font-size: 1rem;
         padding: 5vw;
     }
