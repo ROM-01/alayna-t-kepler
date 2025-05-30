@@ -87,7 +87,7 @@ body::after {
     position: relative;
     margin: auto;
     text-align: center;
-    padding-top: 1em;
+    padding-top: 10vw;
     z-index: 1;
 }
 .portfolio {
@@ -110,7 +110,7 @@ a {
     flex-direction: column;
     gap: 1em;
     color: white;
-    font-size: 2em;
+    font-size: 1.5rem;
     margin-top: 6em;
     z-index: 1;
 }
@@ -129,6 +129,7 @@ a {
 #play-audio {
     position: relative;
     font-size: 1rem;
+    text-align: center;
     cursor: url('/icons/heart-game-menu-click.png') 20 20, pointer;
     animation: tiltBounce 2s ease-in-out infinite;
     margin-top: 4em;
