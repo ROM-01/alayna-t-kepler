@@ -1,3 +1,28 @@
+window.addEventListener("load", () => {
+    const overlay = document.getElementById("transition-overlay");
+    overlay.style.opacity = "0";
+    setTimeout(() => {
+        overlay.style.display = "none";
+    }, 1000);
+});
+
+const pageLinks = document.querySelectorAll("a");
+
+pageLinks.forEach(link => {
+    link.addEventListener("click", e => {
+        const href = link.getAttribute("href");
+        if (href && !href.startsWith("#")) {
+            e.preventDefault();
+            const overlay = document.getElementById("transition-overlay");
+            overlay.style.display = "block";
+            overlay.style.opacity = "1"; // Fade in
+            setTimeout(() => {
+                window.location.href = href;
+            }, 1000);
+        }
+    });
+});
+
 // Mouse Click Sound
 const clickSound = new Audio('/audio/select-sound-121244.mp3');
 clickSound.preload = 'auto';
@@ -16,16 +41,18 @@ const nowPlaying = document.getElementById("now-playing");
 
 // Music playlist
 const playlist = [
-    { name: "Title Theme", src: "/audio/xDeviruchi-TitleTheme.wav" },
-    { name: "Prepare for Battle!", src: "/audio/xDeviruchi-PrepareforBattle!.wav" },
-    { name: "Decisive Battle", src: "/audio/xDeviruchi-DecisiveBattle.wav" },
+    { name: "Title Theme", src: "/audio/xDeviruchi - Title Theme .mp3" },
+    { name: "Prepare for Battle!", src: "/audio/xDeviruchi - Prepare for Battle! .mp3" },
+    { name: "Decisive Battle", src: "/audio/xDeviruchi - Decisive Battle.mp3" },
 ];
 
 let currentIndex = 0;
 audio.volume = 0.3;
 
 // Load and optionally play a song
-function loadSong() {
+function loadSong(index) {
+    audio.src = playlist[index].src;
+    nowPlaying.textContent = "Now Playing: " + playlist[index].name;
     if (localStorage.getItem("soundEnabled") === "true") {
         audio.play();
     };
@@ -35,7 +62,7 @@ function loadSong() {
 window.addEventListener("DOMContentLoaded", () => {
     sideMenuBtn.classList.add("collapsed");
     sideMenu.style.display = "none";
-    loadSong(); // preload first song
+    loadSong(currentIndex); // preload first song
 });
 
 // Side menu toggle
@@ -49,17 +76,17 @@ sideMenuBtn.addEventListener("click", () => {
 document.addEventListener("click", e => {
     if (e.target.id === "music-next-btn") {
         currentIndex = (currentIndex + 1) % playlist.length;
-        loadSong();
+        loadSong(currentIndex);
     } else if (e.target.id === "music-prev-btn") {
         currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
-        loadSong();
+        loadSong(currentIndex);
     }
 });
 
 // Autoplay next song when current ends
 audio.addEventListener("ended", () => {
     currentIndex = (currentIndex + 1) % playlist.length;
-    loadSong();
+    loadSong(currentIndex);
 });
 
 const startLink = document.querySelectorAll(".start-link");
@@ -71,7 +98,6 @@ startLink.forEach(link => {
         newScreenAudio.play().catch(() => { });
     });
 });
-
 
 // Mouse Trail
 const coords = { x: 0, y: 0 };
@@ -134,7 +160,6 @@ function animateSquares() {
     requestAnimationFrame(animateSquares);
 }
 animateSquares();
-
 
 //PFP Stars Animation
 const container = document.querySelector('.pfp-wrapper');
