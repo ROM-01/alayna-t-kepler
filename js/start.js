@@ -25,17 +25,17 @@ let currentIndex = 0;
 audio.volume = 0.3;
 
 // Load and optionally play a song
-function loadSong(index) {
-    audio.src = playlist[index].src;
-    nowPlaying.textContent = "Now Playing: " + playlist[index].name;
-    audio.play()
+function loadSong() {
+    if (localStorage.getItem("soundEnabled") === "true") {
+        audio.play();
+    };
 }
 
 // DOMContentLoaded init
 window.addEventListener("DOMContentLoaded", () => {
     sideMenuBtn.classList.add("collapsed");
     sideMenu.style.display = "none";
-    loadSong(currentIndex); // preload first song
+    loadSong(); // preload first song
 });
 
 // Side menu toggle
@@ -49,17 +49,17 @@ sideMenuBtn.addEventListener("click", () => {
 document.addEventListener("click", e => {
     if (e.target.id === "music-next-btn") {
         currentIndex = (currentIndex + 1) % playlist.length;
-        loadSong(currentIndex);
+        loadSong();
     } else if (e.target.id === "music-prev-btn") {
         currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
-        loadSong(currentIndex);
+        loadSong();
     }
 });
 
 // Autoplay next song when current ends
 audio.addEventListener("ended", () => {
     currentIndex = (currentIndex + 1) % playlist.length;
-    loadSong(currentIndex);
+    loadSong();
 });
 
 const startLink = document.querySelectorAll(".start-link");
