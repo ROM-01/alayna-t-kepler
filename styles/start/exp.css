@@ -131,6 +131,7 @@
 }
 
 .exp-side {
+    max-width: 400px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -220,6 +221,10 @@
 .resume-pdf {
     height: 5vw;
     margin-top: -15%;
+}
+
+.exp-content img {
+
 }
 
 @keyframes bounce {

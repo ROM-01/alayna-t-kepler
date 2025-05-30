@@ -1,6 +1,3 @@
-
-
-
 // Mouse Click Sound
 const clickSound = new Audio('/audio/select-sound-121244.mp3');
 clickSound.preload = 'auto';
@@ -10,6 +7,7 @@ document.addEventListener('click', () => {
     clickSound.currentTime = 0;
     clickSound.play().catch(console.log);
 });
+
 
 // Mouse Trail
 const coords = { x: 0, y: 0 };
@@ -32,7 +30,7 @@ const colors = [
     "#33c3ff",
     "#23d9ff",
     "#13efff",
-    "#0fffff", 
+    "#0fffff",
     "#1fffe5",
     "#3fffcc",
     "#5fffb3",
@@ -114,27 +112,20 @@ const quotes = ['"The problem with the world is that the smart ones are skeptica
 
 function generateQuote() {
     if (!quoteElement) return;
-
     if (usedIndexes.size === quotes.length) {
         usedIndexes.clear();
     }
-
     let randomIdx;
     do {
         randomIdx = Math.floor(Math.random() * quotes.length);
     } while (usedIndexes.has(randomIdx));
-
     quoteElement.textContent = quotes[randomIdx];
     usedIndexes.add(randomIdx);
 }
 setInterval(generateQuote, 8000);
 
-
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
-    
+
     // Highlight nav tab based on scroll position
     const navElements = document.querySelectorAll("#page-nav .nav-element");
     const sectionIds = Array.from(navElements).map(el =>
@@ -164,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }, {
-        threshold: [0.3, 0.6, 0.9, 1],
+        threshold: 0.4,
     });
 
     observedSections.forEach(section => sectionObserver.observe(section));
@@ -177,7 +168,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const section = entry.target;
             const isVisible = entry.isIntersecting;
 
-            // Convert string to boolean safely
             const alreadyVisible = section.dataset.visible === "true";
 
             if (isVisible && !alreadyVisible) {

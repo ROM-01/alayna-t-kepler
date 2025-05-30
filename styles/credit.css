@@ -1,6 +1,6 @@
 @font-face {
-    font-family: creepster;
-    src: url(/fonts/Creepster-Regular.ttf);
+    font-family: dark;
+    src: url(/fonts/DarkMystic.otf);
 }
 
 body {
@@ -14,8 +14,8 @@ body {
 }
 body.dark-mode {
     background-color: #111;
-    font-size: 1.5em;
-    font-family: creepster, cursive;
+    font-size: 1.3em;
+    font-family: dark, cursive;
     color: white;
 }
 
