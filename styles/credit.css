@@ -84,7 +84,7 @@ a {
     box-sizing: border-box;
     border-radius: 10px;
     margin-top: 27vh;
-    padding-bottom: 20em;
+    padding-bottom: 70vh;
     z-index: 1;
 }
 
@@ -157,4 +157,37 @@ section {
 .color {
     color: rgb(236, 0, 110);
     font-weight: bold;
+}
+
+/* For Tablet View */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body {
+        font-size: 1.3rem;
+    }
+
+    #opening h1 {
+        font-size: 1.5rem;
+    }
+
+    #opening h2 {
+        font-size: 1.2rem;
+        margin-top: 1em;
+    }
+}
+
+/* For Mobile Portrait View */
+@media screen and (max-device-width: 767px) and (orientation: portrait) {
+    body {
+        font-size: 0.6rem;
+    }
+    .rose-bottom-container {
+        margin-bottom: -8px;
+    }
+    #opening h1 {
+        font-size: 1.5rem;
+    }
+    #opening h2 {
+        font-size: 1.2rem;
+        margin-top: 1em;
+    }
 }
