@@ -71,13 +71,13 @@ accordionHeaders.forEach((header) => {
             expCity.innerHTML = "&nbspChicago, IL"
             expDate.innerHTML = "&nbsp05/2023-01/2024"
 
-            const image = document.createElement("img")
+            /*const image = document.createElement("img")
             image.src = "/images/start/work-setup.jpeg"
             image.style.width = "12vw"
             image.style.height = "12vw"
             image.style.borderRadius = "10px"
             expContent.innerHTML = "Content: ";
-            expContent.append(image)
+            expContent.append(image)*/
         } else if (header.id === "exp-item3") {
             const existingVideo = expContent.querySelector("video")
             if (existingVideo) {
