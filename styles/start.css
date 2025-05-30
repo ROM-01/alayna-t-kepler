@@ -624,6 +624,16 @@ footer {
         pointer-events: none;
         z-index: none;
     }
+    .about-bio3 ul,
+    li {
+        text-align: center;
+        font-size: 2vw;
+        padding-bottom: 1vw;
+    }
+
+    .about-bio3-list::marker {
+        content: "⭐️";
+    }
 }
 
 /* For Mobile Portrait View */
@@ -637,6 +647,16 @@ footer {
         left: none;
         pointer-events: none;
         z-index: none;
+    }
+    .about-bio3 ul,
+    li {
+        text-align: center;
+        font-size: 3vw;
+        padding-bottom: 1vw;
+    }
+
+    .about-bio3-list::marker {
+        content: "⭐️";   
     }
 }
 
