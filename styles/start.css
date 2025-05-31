@@ -606,11 +606,6 @@ footer {
 
 /* For Mobile Portrait View */
 @media screen and (max-device-width: 767px) and (orientation: portrait) {
-
-    .section.visible {
-        opacity: none;
-        transform: none;   
-    }
     .eyes {
         display: none;
     }
