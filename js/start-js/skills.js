@@ -186,6 +186,7 @@ for (const [gridId, skillList] of Object.entries(sections)) {
         const img = document.createElement("img");
         img.className = "skills-icon";
         img.alt = skillName;
+        img.loading = "lazy"
 
         const key = skillName.toLowerCase();
         img.src = `/icons/skills/${iconMap[key] || `${key}.png`}`;
