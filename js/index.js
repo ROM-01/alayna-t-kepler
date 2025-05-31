@@ -50,7 +50,7 @@ window.addEventListener("load", () => {
     overlay.style.opacity = "0";
     setTimeout(() => {
         overlay.style.display = "none";
-    }, 1000);
+    }, 500);
 });
 
 const pageLinks = document.querySelectorAll("a");
@@ -65,7 +65,7 @@ pageLinks.forEach(link => {
             overlay.style.opacity = "1"; // Fade in
             setTimeout(() => {
                 window.location.href = href;
-            }, 1000);
+            }, 500);
         }
     });
 });

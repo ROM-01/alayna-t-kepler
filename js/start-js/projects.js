@@ -2,28 +2,28 @@
 const mediaMap = {
     "alayna-t-kepler": {
         type: "image",
-        src: "/images/start/start-projects/project-1.png",
+        src: "/images/start/start-projects/portfolio.webp",
         alt: "Screenshot of Project One",
         status: "Completed"
     },
     "art-institute-of-chicago-gallery": {
         type: "image",
-        src: "/images/start/start-projects/art-gallery.png",
+        src: "/images/start/start-projects/art-gallery.webp",
         status: "Completed"
     },
     "backend-database-practice-application": {
         type: "image",
-        src: "/images/start/start-projects/coming-soon.jpg",
+        src: "/images/start/start-projects/coming-soon.webp",
         status: "Hiatus"
     },
     "guess-number-debugging-practice": {
         type: "image",
-        src: "/images/start/start-projects/coming-soon.jpg",
+        src: "/images/start/start-projects/coming-soon.webp",
         status: "Completed"
     },
     "crud_application": {
         type: "image",
-        src: "/images/start/start-projects/coming-soon.jpg",
+        src: "/images/start/start-projects/coming-soon.webp",
         status: "Hiatus"
     },
     "flower-gallery-tabs": {
@@ -38,7 +38,7 @@ const mediaMap = {
     },
     "My-Projects-Application": {
         type: "image",
-        src: "/images/start/start-projects/coming-soon.jpg",
+        src: "/images/start/start-projects/coming-soon.webp",
         status: "Hiatus"
     }
 
@@ -109,6 +109,49 @@ fetch("https://api.github.com/users/ROM-01/repos")
             `;
 
             track.appendChild(slide);
+
+            // Add YouTube facade click handler
+            track.addEventListener("click", (e) => {
+                const facade = e.target.closest(".youtube-facade");
+                if (!facade) return;
+
+                const videoId = facade.getAttribute("data-video-id");
+
+                if (facade.classList.contains("active")) {
+                    // If it's already open, do nothing (or you could choose to close it)
+                    return;
+                }
+                document.querySelectorAll(".youtube-facade.active").forEach(activeFacade => {
+                    const previewImg = `https://img.youtube.com/vi/${activeFacade.getAttribute("data-video-id")}/hqdefault.jpg`;
+                    activeFacade.innerHTML = `
+            <img src="${previewImg}" alt="Video preview" style="width: 100%; aspect-ratio: 16/9;">
+            <div class="play-button" style="
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 60px;
+                height: 60px;
+                background: rgba(0, 0, 0, 0.7) url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMuMC9zdmciPjxwYXRoIGQ9Ik0yNC4xMzQ5IDExLjg2NTNDMjQuMTM0OSAxMC44Mjk0IDIyLjk3MTYgMTAuMTc4NiAyMi4xMDUzIDEwLjg4ODdMMTUuOTk0OSAxNS43ODg3QzE1LjE3MzYgMTYuNDY3NSAxNS4xNzM2IDE3LjUzMjUgMTUuOTk0OSAxOC4yMTEzTDIyLjEwNTMgMjMuMTEzMkMyMi45NzE2IDIzLjgyMzMgMjQuMTM0OSAyMy4xNzI1IDI0LjEzNDkgMjIuMTM2N1YxMS44NjUzWiIgZmlsbD0id2hpdGUiLz48L3N2Zz4=') no-repeat center;
+                background-size: 60%;
+                border-radius: 50%;
+            "></div>
+        `;
+                    activeFacade.classList.remove("active");
+                });
+                
+                facade.innerHTML = `
+    <div style=" width: 100%; aspect-ratio: 16 / 9;">
+        <iframe
+            src="https://www.youtube.com/embed/${videoId}?autoplay=1"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+        ></iframe>
+    </div>`;
+                facade.classList.add("active");
+            });
         });
 
         // Custom project

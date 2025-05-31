@@ -1,6 +1,9 @@
 /* General */
+html {
+    background-color: #1a005b;
+}
 
-body {
+body{
     margin: 0;
     padding: 0;
     width: 100%;
