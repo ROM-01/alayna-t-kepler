@@ -609,16 +609,11 @@ footer {
     .eyes {
         display: none;
     }
-    .square {
-        width: 0px;
-        height: 0px;
-        background-color: none;
-        position: none;
-        top: none;
-        left: none;
-        pointer-events: none;
-        z-index: none;
+    .pfp {
+        width: 15vw;
+        height: 15vw;
     }
+
     .about-bio3 ul,
     li {
         text-align: center;
