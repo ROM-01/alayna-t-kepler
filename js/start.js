@@ -1,9 +1,17 @@
 window.addEventListener("load", () => {
     const overlay = document.getElementById("transition-overlay");
-    overlay.style.opacity = "0";
-    setTimeout(() => {
+
+    // Only fade out if coming from a link click
+    if (sessionStorage.getItem("linkClicked") === "true") {
+        overlay.style.opacity = "0";
+        setTimeout(() => {
+            overlay.style.display = "none";
+        }, 500);
+
+        sessionStorage.removeItem("linkClicked");
+    } else {
         overlay.style.display = "none";
-    }, 1000);
+    }
 });
 
 const pageLinks = document.querySelectorAll("a");
@@ -13,15 +21,20 @@ pageLinks.forEach(link => {
         const href = link.getAttribute("href");
         if (href && !href.startsWith("#")) {
             e.preventDefault();
+
+            sessionStorage.setItem("linkClicked", "true");
+
             const overlay = document.getElementById("transition-overlay");
             overlay.style.display = "block";
-            overlay.style.opacity = "1"; // Fade in
+            overlay.style.opacity = "1";
+
             setTimeout(() => {
                 window.location.href = href;
-            }, 1000);
+            }, 500);
         }
     });
 });
+
 
 // Mouse Click Sound
 const clickSound = new Audio('/audio/select-sound-121244.mp3');
