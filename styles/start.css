@@ -103,7 +103,7 @@ h2 {
     position: fixed;
     height: 50px;
     width: 100%;
-    background-color: rgb(99, 0, 51);
+    background-color: #000;
     z-index: 5;
 }
 
@@ -606,6 +606,17 @@ footer {
 
 /* For Mobile Portrait View */
 @media screen and (max-device-width: 767px) and (orientation: portrait) {
+    .section {
+        display: none;
+        opacity: none;
+        transform: none;
+        transition: none;
+    }
+
+    .section.visible {
+        opacity: none;
+        transform: none;   
+    }
     .eyes {
         display: none;
     }
