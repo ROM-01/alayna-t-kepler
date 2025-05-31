@@ -23,7 +23,7 @@
     background-color: #1a005b;
     object-fit: cover;
     border-radius: 20px;
-    z-index: -1;
+    z-index: 0;
 }
 
 .project-container::after,
