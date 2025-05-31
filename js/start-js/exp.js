@@ -89,8 +89,8 @@ accordionHeaders.forEach((header) => {
             expDate.innerHTML = "&nbsp01/2023-05/2023"
             const video = document.createElement("video");
             const source = document.createElement("source");
-            source.setAttribute("src", "/videos/AR.mp4");
-            source.setAttribute("type", "video/mp4");
+            source.setAttribute("src", "/videos/AR.webm");
+            source.setAttribute("type", "video/webm");
             video.append(source);
             video.setAttribute("autoplay", "");
             video.setAttribute("controls", "");
