@@ -22,8 +22,8 @@
     inset: 0;
     background-color: #1a005b;
     object-fit: cover;
-    border-radius: 20px;
-    z-index: 0;
+    border-radius: 10px;
+    z-index: 3;
 }
 
 .project-container::after,
@@ -36,7 +36,7 @@
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    z-index: -3;
+    z-index: 0;
     padding: 3px;
     border-radius: 10px;
     animation: 3s spin linear infinite;
@@ -55,7 +55,7 @@
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    z-index: -2;
+    z-index: 1;
     border-radius: 10px;
 }
 
@@ -64,6 +64,7 @@
     width: 100%;
     max-width: 1000px;
     margin: auto;
+    z-index: 3;
 
 }
 
