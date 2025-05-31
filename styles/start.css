@@ -610,8 +610,11 @@ footer {
         display: none;
     }
     .pfp {
-        width: 15vw;
-        height: 15vw;
+        width: 20vw;
+        height: 20vw;
+    }
+    .title-page {
+        font-size: 7vw;
     }
 
     .about-bio3 ul,
