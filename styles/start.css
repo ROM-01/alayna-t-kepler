@@ -93,8 +93,8 @@ h2 {
 #projects,
 #experience {
     padding: 20px;
-    margin: 20px;
-    margin-bottom: 80px;
+    margin: 3.5vw;
+    margin-bottom: 10vw;
 }
 
 /* eyes */
@@ -116,7 +116,7 @@ h2 {
 /*Nav Bar*/
 
 #page-nav {
-    height: 50px;
+    height: 4em;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -124,7 +124,7 @@ h2 {
     position: sticky;
     top: 0;
     background-color: rgb(31, 4, 77);
-    padding: 5px;
+    padding: 1vw;
     z-index: 100;
 }
 
@@ -139,13 +139,13 @@ a:active {
 .nav-element {
     position: relative;
     color: transparent;
-    -webkit-text-stroke: 1px #00f0ff;
+    -webkit-text-stroke: 0.1vw #00f0ff;
     transform: translateZ(0);
     will-change: transform;
     transition: all 0.3s ease;
     width: 100%;
-    height: 40px;
-    font-size: 3vw;
+    height: 2em;
+    font-size: 4rem;
     padding-top: 20px;
     
 }
@@ -173,13 +173,13 @@ a:active {
 
 #page-nav .nav-element.active a {
     color: rgb(31, 4, 77);
-    -webkit-text-stroke: 1px hotpink;
+    -webkit-text-stroke: 0.1vw hotpink;
     background-color: transparent;
 }
 
 #page-nav .nav-element.active:hover a {
-    color: rgb(85, 1, 100) !important;
-    -webkit-text-stroke: 0px purple !important;
+    color: rgb(85, 1, 100) ;
+    -webkit-text-stroke: 0px purple;
     transform: scale(1.1);
 }
 
@@ -193,7 +193,7 @@ a:active {
 
 .landing-container {
     position: relative;
-    padding-bottom: 4vw;
+    padding-bottom: 5vw;
     z-index: 1;
 }
 
@@ -292,6 +292,8 @@ a:active {
 /* quote */
 
 .dev-quote-wrapper {
+    height: 23vh;
+    text-align: center;
     font-size: 3vw;
     color: #ffe9fa;
     background-color: rgb(000, 000, 000, 0.3);
@@ -300,7 +302,7 @@ a:active {
     margin-left: 20px;
     margin-right: 20px;
     margin-top: -4vw;
-    padding: 1px 2vw;
+    padding: 1vw 2vw;
 }
 
 
@@ -310,7 +312,8 @@ a:active {
     flex-wrap: wrap;
     gap: 40px;
     justify-content: center;
-    text-shadow: 0.2vw 0.1vw 1px rgb(89, 1, 59);
+    color: rgb(252, 237, 255);
+    text-shadow: 0.3vw 0.2vw 1px rgb(61, 0, 41);
 }
 
 .card-title1 {
@@ -334,19 +337,19 @@ a:active {
 
 
 .card-about1 {
-    padding: 3vw;
     text-align: center;
     border-radius: 20px;
     position: relative;
-    min-width: 250px;
+    min-width: 300px;
     height: fit-content;
+    padding: 3vw;
 }
 
 .bg-card1 {
     position: absolute;
     width: 100%;
     height: 100%;
-    opacity: 0.5;
+    opacity: 0.4;
     inset: 0;
     background-color: #1a005b;
     object-fit: cover;
@@ -475,8 +478,8 @@ a:active {
     position: relative;
     text-align: center;
     border-radius: 20px;
-    padding: 2vw;
-    min-width: 500px;
+    padding: 3vw;
+    min-width: 600px;
 }
 
 .card-title3 {
@@ -486,7 +489,7 @@ a:active {
 
 .about-bio3 ul, li {
     text-align: center;
-    font-size: 2vw;
+    font-size: 1.8rem;
     padding-bottom: 1vw;
 }
 
@@ -498,7 +501,7 @@ a:active {
     position: absolute;
     width: 100%;
     height: 100%;
-    opacity: 0.6;
+    opacity: 0.4;
     inset: 0;
     background-color: #1a005b;
     object-fit: cover;
@@ -586,15 +589,27 @@ footer {
 
 /* For Tablet View */
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-    .square { 
-        width: 0px;
-        height: 0px;
-        background-color: none;
-        position: none;
-        top: none;
-        left: none;
-        pointer-events: none;
-        z-index: none;
+    h1,h2 {
+        animation: none;
+    }
+    #page-nav {
+        height: 2vh;
+        padding: 3vw;
+        padding-top: 3vh;
+    }
+    .nav-element {
+        font-size: 2rem;
+        -webkit-text-stroke: 0.2vw #00f0ff;
+    }
+    #page-nav .nav-element.active a {
+        -webkit-text-stroke: 0.2vw hotpink;
+    }
+    .dev-quote-wrapper {
+        height: 11vh;
+        font-size: 2rem;
+    }
+    .about-container {
+        flex-wrap: wrap; 
     }
     .about-bio3 ul,
     li {
@@ -606,17 +621,41 @@ footer {
 
 /* For Mobile Portrait View */
 @media screen and (max-device-width: 767px) and (orientation: portrait) {
+    h1,
+    h2 {
+        animation: none;
+    }
     .eyes {
         display: none;
     }
     .pfp {
-        width: 20vw;
-        height: 20vw;
+        width: 40vw;
+        height: 40vw;
+        margin-top: 4vh;
     }
     .title-page {
-        font-size: 7vw;
+        font-size: 3rem;
+        margin-top: 1vh;
+        margin-bottom: 5vh;
+        animation: none;
     }
-
+    .dev-quote-wrapper {
+        font-size: 1rem;
+        height: 6.5vh;
+        padding: 4vw;
+        padding-top: -2vw;
+    }
+    #page-nav {
+        padding: 3vw;
+        height: 3vh;
+    }
+    .nav-element {
+        font-size: 1rem;
+        -webkit-text-stroke: 0.3vw #00f0ff;
+    }
+    #page-nav .nav-element.active a {
+        -webkit-text-stroke: 0.3vw hotpink;
+    }
     .about-bio3 ul,
     li {
         text-align: center;

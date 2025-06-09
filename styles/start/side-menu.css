@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: row;
     right: 0;
-    z-index: 3;
+    z-index: 100;
     margin-top: 1vw;
 }
 
@@ -149,11 +149,6 @@
 /* For Tablet View */
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     .side-menu-container {
-        position: fixed;
-        display: flex;
-        flex-direction: row;
-        right: 0;
-        z-index: 3;
         margin-top: 1vw;
     }
 
@@ -217,11 +212,6 @@
 /* For Mobile Portrait View */
 @media screen and (max-device-width: 767px) and (orientation: portrait) {
     .side-menu-container {
-        position: fixed;
-        display: flex;
-        flex-direction: row;
-        right: 0;
-        z-index: 3;
         margin-top: 1vw;
     }
 

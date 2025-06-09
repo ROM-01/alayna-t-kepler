@@ -62,7 +62,7 @@
 .carousel {
     overflow: hidden;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1500px;
     margin: auto;
     z-index: 3;
 
@@ -77,6 +77,7 @@
     min-width: 100%;
     box-sizing: border-box;
     border-radius: 10px;
+    font-size: 2rem;
     text-align: center;
     padding: 1em;
 
@@ -117,7 +118,7 @@
 
     0%,
     100% {
-        color: #007281;
+        color: #f470f6;
         text-shadow: none;
     }
 

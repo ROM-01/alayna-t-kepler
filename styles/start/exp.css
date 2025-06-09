@@ -1,5 +1,9 @@
 /* Experience */
 
+#experience {
+    height: fit-content;
+}
+
 .exp-container {
     position: relative;
     display: flex;
@@ -216,6 +220,39 @@
 .resume-pdf {
     height: 5vw;
     margin-top: -15%;
+}
+
+@media screen and (max-device-width: 767px) and (orientation: portrait) {
+    #experience {
+        height: fit-content;
+    }
+    .accordion-header {
+        font-size: 1.5rem;
+    }
+    .accordion-content {
+        font-size: 1rem;
+    }
+    .exp-side {
+        width: 300px;
+        
+    }
+    .exp-company,
+    .exp-skills,
+    .exp-city,
+    .exp-date,
+    .exp-content-wrapper {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-left: 10%;
+    }
+    .resume-wrapper {
+        font-size: 1rem;
+        margin-top: -3vw;
+    }
+    .resume-pdf {
+        height: 10vw;
+        width: 10vw;
+    }
 }
 
 
