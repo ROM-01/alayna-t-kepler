@@ -6,6 +6,7 @@
     bottom: 0;
     right: 0;
     padding: 1em;
+    margin-right: 2vw;
     z-index: 3;
 }
 
@@ -70,10 +71,6 @@
     background-color: #39099b;
     cursor: url('/icons/heart-click.png') 20 20, pointer;
     margin-left: auto;
-    padding-right: 2vw;
-    padding-left: 2vw;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
 }
 
 .dialog-textbox-bottom {
@@ -99,4 +96,36 @@
     padding-top: 2vw;
     padding-right: 2vw;
     padding-bottom: 3.5vw;
+}
+
+/* For Tablet View */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .bell-container img {
+        width: 8vw;
+    }
+
+}
+
+/* For Mobile Portrait View */
+@media screen and (max-device-width: 767px) and (orientation: portrait) {
+    .bell-container img {
+        width: 12vw;
+    }
+    .dialog-img-wrapper {
+        width: 20vw;
+    }
+    .dialog-img {
+        width: 20vw;
+        margin-top: 4vw;
+    }
+    .dialog-textbox-top h4 {
+        font-size: 1.5rem;
+    }
+    .dialog-textbox-top img {
+        width: 1em;
+        height: 1em;
+    }
+    .dialog-textbox-bottom {
+        font-size: 1rem;
+    }
 }

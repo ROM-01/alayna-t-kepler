@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }, {
-        threshold: 0.1
+        threshold: 0
     });
     sections.forEach(section => {
         section.dataset.visible = "false";

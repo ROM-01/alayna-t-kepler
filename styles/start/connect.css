@@ -3,6 +3,7 @@
 .connect-container {
     position: relative;
     font-family: "Jersey 20", sans-serif;
+    font-size: 2rem;
     display: flex;
     flex-direction: column;
     border-left: 1vw solid #00f0ff;
@@ -76,7 +77,9 @@
 .socials-container,
 .message-container {
     background-color: rgb(30, 0, 64);
-    border: 5px solid rgb(102, 177, 234);
+    border-left: 0.5vw solid rgb(185, 109, 255);
+    border-top: 0.5vw solid rgb(255, 111, 236);
+    box-shadow: 5px 5px #00d1e0;
     border-radius: 20px;
 
 }
@@ -136,7 +139,6 @@
     outline-color: #00f0ff;
     outline-style: solid;
     outline-width: 2px;
-    transition: outline 0.5s ease-in-out, border 0.5s ease-in-out;
 }
 
 .input,
