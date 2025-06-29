@@ -148,7 +148,8 @@ setInterval(() => {
 const quoteElement = document.querySelector(".dev-quote")
 const usedIndexes = new Set()
 
-const quotes = ['"The problem with the world is that the smart ones are skeptical, and the idiots have confidence." - Charles Bukowski', '"If you want the rainbow, you gotta put up with the rain.” - Dolly Parton', '"People cannot be knowledgeable about everything but they can be knowledgeable about the extent of their own ignorance" -Thomas Sowell', '"When exposing a crime is treated as committing a crime, you are being ruled by criminals” - Edward Snowden', '"If it\'s your job to eat a frog, it\'s best to do it first thing in the morning. And if it\'s your job to eat two frogs, it\'s best to eat the biggest one first." - Mark Twain', '"If you kill a killer, the number of killers in the world remains the same." - Batman', '"Talent without hard work is nothing." - Cristiano Ronaldo']
+const quotes = ['"The problem with the world is that the smart ones are skeptical, and the idiots have confidence." - Charles Bukowski', '"If you want the rainbow, you gotta put up with the rain.” - Dolly Parton', '"People cannot be knowledgeable about everything but they can be knowledgeable about the extent of their own ignorance" -Thomas Sowell', '"When exposing a crime is treated as committing a crime, you are being ruled by criminals” - Edward Snowden', '"If it\'s your job to eat a frog, it\'s best to do it first thing in the morning. And if it\'s your job to eat two frogs, it\'s best to eat the biggest one first." - Mark Twain', '"If you kill a killer, the number of killers in the world remains the same." - Batman', '"Talent without hard work is nothing." - Cristiano Ronaldo', '"We can\'t create something from nothingness." - David Hume'
+]
 
 function generateQuote() {
     if (!quoteElement) return;

@@ -134,9 +134,9 @@
 #users-name:focus,
 #users-email:focus,
 #users-message:focus {
-    border: none;
+    border: 2px solid #00f0ff;
     border-radius: 3px;
-    outline-color: #00f0ff;
+    outline-color: #b86bff;
     outline-style: solid;
     outline-width: 2px;
 }
@@ -152,7 +152,7 @@
 #users-message {
     padding: 2vw;
     resize: vertical;
-
+    resize: none;
 }
 
 
